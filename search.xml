@@ -4,6 +4,108 @@
   
     
     <entry>
+      <title>Linux 目录区别</title>
+      <link href="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/"/>
+      <url>/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="目录-、-home目录-、-目录的区别"><a href="#目录-、-home目录-、-目录的区别" class="headerlink" title="/目录 、/home目录 、~目录的区别"></a>/目录 、/home目录 、~目录的区别</h2><h3 id="：根目录"><a href="#：根目录" class="headerlink" title="/ ：根目录"></a>/ ：根目录</h3><h4 id="cd-从任何用户执行该命令都会进入同一个目录，即所有用户共享，其下文件如图"><a href="#cd-从任何用户执行该命令都会进入同一个目录，即所有用户共享，其下文件如图" class="headerlink" title="cd /:  从任何用户执行该命令都会进入同一个目录，即所有用户共享，其下文件如图"></a><code>cd /</code>:  从任何用户执行该命令都会进入同一个目录，即所有用户共享，其下文件如图</h4><div style="display: inline-block;">  <a href="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/根目录.png" data-fancybox="group" data-caption="undefined" class="fancybox"><img data-src="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/根目录.png" class="lazyload"></a></div><h2 id="home-：家目录（我觉得还不如叫用户列表目录）"><a href="#home-：家目录（我觉得还不如叫用户列表目录）" class="headerlink" title="/home ：家目录（我觉得还不如叫用户列表目录）"></a>/home ：家目录（我觉得还不如叫用户列表目录）</h2><h4 id="cd-home：会显示这台机器的用户，如图，所以我认为与其叫什么家目录，不如说是用户目录"><a href="#cd-home：会显示这台机器的用户，如图，所以我认为与其叫什么家目录，不如说是用户目录" class="headerlink" title="cd /home：会显示这台机器的用户，如图，所以我认为与其叫什么家目录，不如说是用户目录"></a><code>cd /home</code>：会显示这台机器的用户，如图，所以我认为与其叫什么家目录，不如说是用户目录</h4><div style="display: inline-block;"><p><a href="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/%E5%AE%B6%E7%9B%AE%E5%BD%95.png" data-fancybox="group" data-caption="家目录" class="fancybox"><img alt="家目录" title="家目录" data-src="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/%E5%AE%B6%E7%9B%AE%E5%BD%95.png" class="lazyload"></a></p></div><h2 id="：当前用户的家目录"><a href="#：当前用户的家目录" class="headerlink" title="~ ：当前用户的家目录"></a>~ ：当前用户的家目录</h2><h4 id="在imooc用户下登录："><a href="#在imooc用户下登录：" class="headerlink" title="在imooc用户下登录："></a>在imooc用户下登录：</h4><p><code>cd ~</code> 等价于<code>cd /home/imooc</code>：会进入当前用户的家目录（一般情况连接上机器都是在这个目录，一般操作也都是在这里）</p><div style="display: inline-block;"><p><a href="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/%E7%94%A8%E6%88%B7%E5%AE%B6%E7%9B%AE%E5%BD%951.png" data-fancybox="group" data-caption="用户家目录" class="fancybox"><img alt="用户家目录" title="用户家目录" data-src="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/%E7%94%A8%E6%88%B7%E5%AE%B6%E7%9B%AE%E5%BD%951.png" class="lazyload"></a></p></div><h4 id="在root下登录：-cd-等价于cd-root"><a href="#在root下登录：-cd-等价于cd-root" class="headerlink" title="在root下登录： cd ~等价于cd /root"></a>在root下登录： <code>cd ~</code>等价于<code>cd /root</code></h4><div style="display: inline-block;"><p><a href="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/%E7%94%A8%E6%88%B7%E5%AE%B6%E7%9B%AE%E5%BD%952.png" data-fancybox="group" data-caption="用户家目录" class="fancybox"><img alt="用户家目录" title="用户家目录" data-src="/2020/02/22/Linux%E7%9B%AE%E5%BD%95%E5%8C%BA%E5%88%AB/%E7%94%A8%E6%88%B7%E5%AE%B6%E7%9B%AE%E5%BD%952.png" class="lazyload"></a></p></div></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux 防火墙设置</title>
+      <link href="/2020/02/22/Linux-%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2020/02/22/Linux-%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a><center>常用命令</center></h2><h3 id="查看防火墙状态："><a href="#查看防火墙状态：" class="headerlink" title="查看防火墙状态："></a>查看防火墙状态：</h3><pre><code>sudo systemctl status firewalld 或firewall-cmd --state</code></pre><h3 id="关闭防火墙命令："><a href="#关闭防火墙命令：" class="headerlink" title="关闭防火墙命令："></a>关闭防火墙命令：</h3><pre><code>sudo systemctl stop firewalld或systemctl stop firewalld.service</code></pre><h3 id="打开防火墙命令："><a href="#打开防火墙命令：" class="headerlink" title="打开防火墙命令："></a>打开防火墙命令：</h3><pre><code>sudo systemctl start firewalld或systemctl start firewalld.service</code></pre><h3 id="禁止firewall开机启动："><a href="#禁止firewall开机启动：" class="headerlink" title="禁止firewall开机启动："></a>禁止firewall开机启动：</h3><pre><code>sudo systemctl disable firewalld或systemctl disable firewalld.service</code></pre></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux 安装 ifconfig</title>
+      <link href="/2020/02/22/Linux-%E5%AE%89%E8%A3%85-ifconfig/"/>
+      <url>/2020/02/22/Linux-%E5%AE%89%E8%A3%85-ifconfig/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h3 id="CentOS-7-系统默认-没有安装-ifconfig-命令。"><a href="#CentOS-7-系统默认-没有安装-ifconfig-命令。" class="headerlink" title="CentOS 7 系统默认 没有安装  ifconfig 命令。"></a>CentOS 7 系统默认 没有安装  ifconfig 命令。</h3><h4 id="如果直接运行-ifconfig-命令，则提示错误-：-bash-ifconfig-command-not-found"><a href="#如果直接运行-ifconfig-命令，则提示错误-：-bash-ifconfig-command-not-found" class="headerlink" title="如果直接运行 ifconfig 命令，则提示错误 ：-bash: ifconfig: command not found."></a>如果直接运行 ifconfig 命令，则提示错误 ：<code>-bash: ifconfig: command not found.</code></h4><h3 id="直接运行yum-install-ifconfig"><a href="#直接运行yum-install-ifconfig" class="headerlink" title="直接运行yum install ifconfig"></a>直接运行yum install ifconfig</h3><h4 id="提示错误-No-package-ifconfig-available-Error-Nothing-to-do"><a href="#提示错误-No-package-ifconfig-available-Error-Nothing-to-do" class="headerlink" title="提示错误 No package ifconfig available. Error: Nothing to do"></a>提示错误 <code>No package ifconfig available. Error: Nothing to do</code></h4><h4 id="此时执行yum-查询命令-yum-search-ifconfig"><a href="#此时执行yum-查询命令-yum-search-ifconfig" class="headerlink" title="此时执行yum 查询命令 yum search ifconfig"></a>此时执行yum 查询命令 <code>yum search ifconfig</code></h4><h4 id="然后执行安装依赖包-yum-install-net-tools-x86-64"><a href="#然后执行安装依赖包-yum-install-net-tools-x86-64" class="headerlink" title="然后执行安装依赖包 yum install net-tools.x86_64"></a>然后执行安装依赖包 <code>yum install net-tools.x86_64</code></h4><h4 id="最后执行-ifconfig-命令，大功告成。"><a href="#最后执行-ifconfig-命令，大功告成。" class="headerlink" title="最后执行 ifconfig 命令，大功告成。"></a>最后执行 <code>ifconfig</code> 命令，大功告成。</h4></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Jenkinx命令以及升级步骤</title>
+      <link href="/2020/02/22/Jenkinx%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E5%8D%87%E7%BA%A7%E6%AD%A5%E9%AA%A4/"/>
+      <url>/2020/02/22/Jenkinx%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E5%8D%87%E7%BA%A7%E6%AD%A5%E9%AA%A4/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Jenkins-命令"><a href="#Jenkins-命令" class="headerlink" title="Jenkins 命令"></a><center>Jenkins 命令</center></h2><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre><code>service jenkins start</code></pre><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><pre><code>service jenkins restart</code></pre><h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><pre><code>service jenkins stop</code></pre><h3 id="登录Jenkins"><a href="#登录Jenkins" class="headerlink" title="登录Jenkins"></a>登录Jenkins</h3><pre><code>http://localhost:8080/</code></pre><h3 id="关闭Jenkins"><a href="#关闭Jenkins" class="headerlink" title="关闭Jenkins"></a>关闭Jenkins</h3><pre><code>http://localhost:8080/exit </code></pre><h3 id="重启Jenkies"><a href="#重启Jenkies" class="headerlink" title="重启Jenkies"></a>重启Jenkies</h3><pre><code>http://localhost:8080/restart </code></pre><h3 id="重新加载Jenkies"><a href="#重新加载Jenkies" class="headerlink" title="重新加载Jenkies"></a>重新加载Jenkies</h3><pre><code>http://localhost:8080/reload </code></pre><h2 id="Jenkins-升级"><a href="#Jenkins-升级" class="headerlink" title="Jenkins 升级"></a><center>Jenkins 升级</center></h2><h3 id="1-找到war包，执行linux系统命令-find"><a href="#1-找到war包，执行linux系统命令-find" class="headerlink" title="1. 找到war包，执行linux系统命令 find"></a>1. 找到war包，执行linux系统命令 find</h3><pre><code>find / -name jenkins.war</code></pre><h3 id="2-下载新版本包"><a href="#2-下载新版本包" class="headerlink" title="2. 下载新版本包"></a>2. 下载新版本包</h3><pre><code>wget http://updates.jenkins-ci.org/download/war/2.176.3/jenkins.war</code></pre><h3 id="3-停止jenkins服务"><a href="#3-停止jenkins服务" class="headerlink" title="3. 停止jenkins服务"></a>3. 停止jenkins服务</h3><pre><code>ps -ef | grep jenkinskill -9 [httpPort]  结束jenkins运行进程</code></pre><h3 id="4-备份原本的war包"><a href="#4-备份原本的war包" class="headerlink" title="4. 备份原本的war包"></a>4. 备份原本的war包</h3><pre><code>cd /usr/local/jenkins/mv jenkins.war jenkins.war.bakmv /root/jenkins.war  .</code></pre><h3 id="5-启动jenkins"><a href="#5-启动jenkins" class="headerlink" title="5.启动jenkins"></a>5.启动jenkins</h3><pre><code>service jenkins start</code></pre><h2 id="wget-下载加速"><a href="#wget-下载加速" class="headerlink" title="wget 下载加速"></a><center>wget 下载加速</center></h2><h2 id="1-安装mwget"><a href="#1-安装mwget" class="headerlink" title="1.安装mwget"></a>1.安装mwget</h2><pre><code>wget http://jaist.dl.sourceforge.net/project/kmphpfm/mwget/0.1/mwget_0.1.0.orig.tar.bz2tar -xjvf mwget_0.1.0.orig.tar.bz2cd mwget_0.1.0.orig</code></pre><h2 id="2-执行-configure"><a href="#2-执行-configure" class="headerlink" title="2.执行./configure"></a>2.执行./configure</h2><pre><code>./configure</code></pre><h4 id="如果出现-error-C-compiler-cannot-create-executables-说明没有安装c-编译器-安装一个c-编译器就可以了"><a href="#如果出现-error-C-compiler-cannot-create-executables-说明没有安装c-编译器-安装一个c-编译器就可以了" class="headerlink" title="如果出现 error: C++ compiler cannot create executables 说明没有安装c++编译器 安装一个c++编译器就可以了"></a>如果出现 error: C++ compiler cannot create executables 说明没有安装c++编译器 安装一个c++编译器就可以了</h4><pre><code>yum install gcc-c++</code></pre><h4 id="如果执行-configure-出现-configure-error-Your-intltool-is-too-old-You-need-intltool-0-35-0-or-later"><a href="#如果执行-configure-出现-configure-error-Your-intltool-is-too-old-You-need-intltool-0-35-0-or-later" class="headerlink" title="如果执行./configure 出现 configure: error: Your intltool is too old. You need intltool 0.35.0 or later."></a>如果执行./configure 出现 configure: error: Your intltool is too old. You need intltool 0.35.0 or later.</h4><pre><code>yum install intltool</code></pre><h2 id="3-最后的安装"><a href="#3-最后的安装" class="headerlink" title="3.最后的安装"></a>3.最后的安装</h2><pre><code>make && make install</code></pre><h2 id="4-安装完毕后-可以使用mwget加速下载"><a href="#4-安装完毕后-可以使用mwget加速下载" class="headerlink" title="4.安装完毕后 可以使用mwget加速下载"></a>4.安装完毕后 可以使用mwget加速下载</h2><pre><code>mwget http://updates.jenkins-ci.org/download/war/2.176.3/jenkins.war</code></pre><h2 id="jenkins-离线问题"><a href="#jenkins-离线问题" class="headerlink" title="jenkins 离线问题"></a><center>jenkins 离线问题</center></h2><h4 id="1-修改-var-lib-jenkins-updates-default-json"><a href="#1-修改-var-lib-jenkins-updates-default-json" class="headerlink" title="1. 修改/var/lib/jenkins/updates/default.json"></a>1. 修改/var/lib/jenkins/updates/default.json</h4><pre><code>www.google.com 改为 www.baidu.com</code></pre><h4 id="2-修改-var-lib-jenkins-hudson-model-UpdateCenter-xml"><a href="#2-修改-var-lib-jenkins-hudson-model-UpdateCenter-xml" class="headerlink" title="2. 修改/var/lib/jenkins/hudson.model.UpdateCenter.xml"></a>2. 修改/var/lib/jenkins/hudson.model.UpdateCenter.xml</h4><pre><code>https://updates.jenkins.io/update-center.json 改为 http://updates.jenkins.io/update-center.json</code></pre><h4 id="3-重启jenkins-解决离线问题。"><a href="#3-重启jenkins-解决离线问题。" class="headerlink" title="3. 重启jenkins,解决离线问题。"></a>3. 重启jenkins,解决离线问题。</h4></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Jenkins </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown语法</title>
       <link href="/2020/02/21/Markdown%E8%AF%AD%E6%B3%95/"/>
       <url>/2020/02/21/Markdown%E8%AF%AD%E6%B3%95/</url>
@@ -27,6 +129,31 @@
     </entry>
     
     
+    
+    <entry>
+      <title>Git命令</title>
+      <link href="/2020/02/21/Git%E5%91%BD%E4%BB%A4/"/>
+      <url>/2020/02/21/Git%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="git初始化设置"><a href="#git初始化设置" class="headerlink" title="git初始化设置"></a><center>git初始化设置</center></h2><p><strong>设置用户名和密码</strong> </p><pre><code>git config --global user.name "haojy_dev"git config --global user.email "haojy11@163.com"---git config --local  xxxxxxx---git config --system xxxxxxx作用域优先级：  git config --local> git config --global > git config --system1. 仓库级别 local2. 用户级别 global3. 系统级别 system</code></pre><p><strong>git查看所有的配置信息</strong> <code>git config -l</code></p><p><strong>查看仓库配置</strong><code>git config --local -l</code></p><p><strong>查看用户配置</strong> <code>git config --global -l</code></p><p><strong>查看系统配置</strong> <code>git config --system -l</code></p><p><strong>增加配置项</strong> <code>git config [--local|--global|--system] --add section.key value(默认是添加在local配置中)</code></p><p><strong>获取一个配置项</strong>  <code>git config [--local|--global|--system] --get section.key(默认是获取local配置中内容)</code></p><p><strong>删除一个配置项</strong>  <code>git config [--local|--global|--system] --unset section.key</code></p><p><strong>生成公钥和私钥</strong> <code>ssh-keygen -t rsa -C"youremail@example.com"</code></p><p><strong>初始化仓库</strong> <code>git init</code></p><h2 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a><center>git基本操作</center></h2><p><strong>将文件添加到仓库</strong> <code>git add filename</code></p><p><strong>一次添加多个文件</strong> <code>git add .</code></p><p><strong>将文件提交到仓库</strong> <code>git commit -m "message"</code></p><p><strong>将文件从仓库删除</strong> <code>git rm filemame</code></p><p><strong>查看当前状态</strong> <code>git status</code></p><p><strong>文件重命名</strong> <code>git mv readme readme.md</code></p><p><strong>对最近一次提交的说明 进行更改</strong> <code>git commit --amend</code></p><p><strong>查看文件内容</strong> <code>cat index.html</code></p><p><strong>设置git提交忽略的文件</strong> <code>vi .gitignore</code></p><p><strong>vi 修改文件编码格式:</strong> </p><pre><code>:set encoding=utf-8 fileencodings=utf-8:wq!</code></pre><h2 id="git回退操作"><a href="#git回退操作" class="headerlink" title="git回退操作"></a><center>git回退操作</center></h2><p><strong>删除所有untracked的文件</strong> <code>git clean -df</code></p><p><strong>将本地修改撤销掉</strong> <code>git checkout -- filename</code></p><p><strong>清空暂存区所有文件</strong> <code>git reset --hard</code></p><p><strong>将暂存区修改撤销掉</strong> <code>git reset HEAD filename</code></p><p><strong>将本地文件回退到指定版本</strong> <code>git reset --hard version_number</code></p><p><strong>将本地文件回退到上一版本</strong> <code>git reset --hard HEAD^</code></p><p><strong>工作区与暂存区恢复一致</strong> <code>git reset --hard HEAD</code></p><p><strong>删除版本库中的内容</strong> <code>git rm -r -f --cached out+commit</code></p><p><strong>git远程强制覆盖本地</strong></p><pre><code>$ git fetch --all$ git reset --hard origin/master $ git pull</code></pre><h2 id="DIFF操作"><a href="#DIFF操作" class="headerlink" title="DIFF操作"></a><center>DIFF操作</center></h2><p><strong>查看工作区和暂存区差别</strong> <code>git diff</code></p><p><strong>查看暂存区和仓库差别</strong> <code>git diff --cached</code></p><p><strong>查看工作区和仓库差别</strong> <code>git diff HEAD</code></p><p><strong>查看本地分支和远程分支区别</strong> <code>git diff master origin/master</code></p><p><strong>直接将两个分支上最新的提交做diff</strong> <code>git diff topic master</code></p><p><strong>查看当前目录和另外一个分支的差别</strong> <code>git diff test</code></p><p><strong>比较两个历史版本之间的差异</strong> <code>git diff SHA1 SHA2</code></p><p><strong>比较两个版本间有哪些文件变更</strong> <code>git diff edf19e c458bd7 --stat</code></p><p><strong>git查看不同版本某一文件差异</strong> <code>git diff HEAD edf19e c458bd7 --stat ---index.html</code></p><p><strong>git查看不同分支文件差异</strong> <code>git diff <branchname> master --stat --index.html</branchname></code></p><h2 id="git分支操作"><a href="#git分支操作" class="headerlink" title="git分支操作"></a><center>git分支操作</center></h2><p><strong>创建分支</strong> <code>git branch <branchname></branchname></code></p><p><strong>创建并切换到分支</strong> <code>git checkout -b <branchname></branchname></code></p><p><strong>切换分支</strong> <code>git checkout <branchname></branchname></code></p><p><strong>删除分支</strong> <code>git branch -d <branchname></branchname></code> <code>git branch -D <branchname></branchname></code></p><p><strong>删除远程分支</strong> <code>git push origin --delete <branchname></branchname></code></p><p><strong>与当前分支合并</strong> <code>git merge <branchname></branchname></code></p><p><strong>查看分支</strong> <code>git branch -a</code> <code>git branch -av</code></p><p><strong>查看所有本地分支和远程分支之间关联</strong> <code>git branch -vv</code></p><h2 id="git远程库操作"><a href="#git远程库操作" class="headerlink" title="git远程库操作"></a><center>git远程库操作</center></h2><p><strong>从远程库克隆</strong> <code>git clone git@link/file.git</code></p><p><strong>查看远程仓库信息</strong> <code>git remote -v</code></p><p><strong>将远程仓库和本地仓库关联</strong> <code>git remote add origin git@link/file.git(origin并非固定值)</code></p><p><strong>解除与远程仓库的关联</strong> <code>git remote rm origin</code></p><p><strong>设置本地分支和远程分支的关联</strong> <code>git branch --set-upstream-to origin/dev dev</code></p><p><strong>从远程仓库拉取并合并</strong> <code>git pull origin dev</code></p><p><strong>从远程仓库获取并合并</strong> <code>git fecth origin dev + git merge origin/branch</code></p><p><strong>将本地仓库内容推送到关联的远程：</strong>      <code>git push origin master（master为当前分支）</code></p><h2 id="git-stash操作"><a href="#git-stash操作" class="headerlink" title="git stash操作"></a><center>git stash操作</center></h2><p><strong>存储</strong> <code>git stash</code></p><p><strong>查看stash区域</strong> <code>git stash list</code></p><p><strong>恢复stash中内容</strong> <code>git stash apply stash@{stash_number}</code></p><p><strong>删除stash中内容</strong> <code>git stash drop stash@{stash_number}</code></p><h2 id="git-tag操作"><a href="#git-tag操作" class="headerlink" title="git tag操作"></a><center>git tag操作</center></h2><p><strong>查看tag</strong> <code>git tag</code></p><p><strong>查看tag详细信息</strong> <code>git show v1.0</code></p><p><strong>创建tag</strong> <code>git tag -a v1.0 -m 'this is test version 1.0'</code></p><p><strong>删除本地tag</strong> <code>git tag -d v0.8</code></p><p><strong>删除远程tag</strong> <code>git push origin master :refs/tags/v0.8</code></p><p><strong>tag推送到远程</strong> <code>git push origin v1.0</code></p><h2 id="git图形界面"><a href="#git图形界面" class="headerlink" title="git图形界面"></a><center>git图形界面</center></h2><p><strong>查看</strong> <code>gitk</code></p><h2 id="git-Log"><a href="#git-Log" class="headerlink" title="git Log"></a><center>git Log</center></h2><p><strong>查看历史记录</strong> <code>git log -- pretty=oneline</code></p><p><strong>查看git版本演进历史</strong> <code>git log --graph</code></p><p><strong>短链接方式显示提交记录</strong> <code>git log --oneline</code></p><p><strong>显示最近的4条提交记录</strong> <code>git log --n4</code></p><p><strong>显示全部日志，包括不同分支的日志记录</strong> <code>git log --all</code></p><p><strong>xxx为log日志短链接的名称，-p 表示查看文件内容，-t 表示查看文件类型</strong> <code>git cat-file -p</code></p><p><strong>查看命令记录</strong> <code>git reflog</code></p><h2 id="git协议"><a href="#git协议" class="headerlink" title="git协议"></a><center>git协议</center></h2><p><strong>本地协议[哑协议]</strong> <code>/path/to/repo.git</code></p><p><strong>本地协议[智能协议]</strong> <code>file:///path/to/repo.git</code></p><p><strong>http/https协议[智能协议]</strong> <code>https://github.com/HJY-dev/HJY-dev.github.io.git</code></p><p><strong>ssh协议[智能协议]</strong> <code>git@github.com:HJY-dev/HJY-dev.github.io.git</code></p><blockquote><p>文章对 Nauyus 公众号文章【一分钟了解git最实用操作】 进行补充修改。<br>可扫码关注公众号，支持原创。<br><a href="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzA3NzQ4MzYwNQ==&mid=2247483846&idx=1&sn=95131aa014dc37aecdc058236f245f97&send_time=" data-fancybox="group" data-caption="Nauyus" class="fancybox"><img alt="Nauyus" title="Nauyus" data-src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzA3NzQ4MzYwNQ==&mid=2247483846&idx=1&sn=95131aa014dc37aecdc058236f245f97&send_time=" class="lazyload"></a></p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+      
+    </entry>
     
     
     
