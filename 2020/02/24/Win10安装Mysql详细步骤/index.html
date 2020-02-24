@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>Win10安装Mysql详细步骤 | Anmi Blog</title><meta name="description" content="Win10安装Mysql详细步骤"><meta name="keywords" content="Mysql"><meta name="author" content="HJY"><meta name="copyright" content="HJY"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Win10安装Mysql详细步骤"><meta name="twitter:description" content="Win10安装Mysql详细步骤"><meta name="twitter:image" content="https://Hjy-dev.github.io/img/logo/mysql.png"><meta property="og:type" content="article"><meta property="og:title" content="Win10安装Mysql详细步骤"><meta property="og:url" content="https://hjy-dev.github.io/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/"><meta property="og:site_name" content="Anmi Blog"><meta property="og:description" content="Win10安装Mysql详细步骤"><meta property="og:image" content="https://Hjy-dev.github.io/img/logo/mysql.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://hjy-dev.github.io/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/"><link rel="prev" title="Vue开源项目库汇总" href="https://hjy-dev.github.io/2020/02/24/Vue%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%BA%93%E6%B1%87%E6%80%BB/"><link rel="next" title="Sqlserver小技巧" href="https://hjy-dev.github.io/2020/02/24/Sqlserver%E5%B0%8F%E6%8A%80%E5%B7%A7/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"./search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  isHome: false,
+  isPost: true
+  
+}</script><meta name="generator" content="Hexo 4.2.0"></head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Anmi Blog</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 视频</span></a></li></ul></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">38</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">26</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">11</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 视频</span></a></li></ul></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><div class="sidebar-toc__content"><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Mysql-安装"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">Mysql 安装</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#需要注意：mysql8-0加密方式修改了"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">(需要注意：mysql8.0加密方式修改了)</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#检查用户"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">检查用户</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#授权远程数据库"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">授权远程数据库</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#授权所有权限"><span class="toc_mobile_items-number">2.1.</span> <span class="toc_mobile_items-text">授权所有权限</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#授权基本的查询修改权限，按需求设置"><span class="toc_mobile_items-number">2.2.</span> <span class="toc_mobile_items-text">授权基本的查询修改权限，按需求设置</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#查看用户权限-show-grants-for-39-xxh-39-39-39"><span class="toc_mobile_items-number">2.3.</span> <span class="toc_mobile_items-text">查看用户权限 show grants for &#39;xxh&#39;@&#39;%&#39;;</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mysql-安装"><span class="toc-number">1.</span> <span class="toc-text">Mysql 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要注意：mysql8-0加密方式修改了"><span class="toc-number">1.1.</span> <span class="toc-text">(需要注意：mysql8.0加密方式修改了)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查用户"><span class="toc-number">1.2.</span> <span class="toc-text">检查用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#授权远程数据库"><span class="toc-number">2.</span> <span class="toc-text">授权远程数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#授权所有权限"><span class="toc-number">2.1.</span> <span class="toc-text">授权所有权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#授权基本的查询修改权限，按需求设置"><span class="toc-number">2.2.</span> <span class="toc-text">授权基本的查询修改权限，按需求设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看用户权限-show-grants-for-39-xxh-39-39-39"><span class="toc-number">2.3.</span> <span class="toc-text">查看用户权限 show grants for &#39;xxh&#39;@&#39;%&#39;;</span></a></li></ol></li></ol></div></div></div><main id="content-outer"><div id="top-container" style="background-image: url(/img/logo/mysql.png)"><div id="post-info"><div id="post-title"><div class="posttitle">Win10安装Mysql详细步骤</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 发表于 2020-02-24<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> 更新于 2020-02-24</time><span class="post-meta__separator">|</span><span><i class="fa fa-inbox post-meta__icon fa-fw" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><div class="post-meta-wordcount"><div class="post-meta-pv-cv"><span><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i>阅读量:</span><span id="busuanzi_value_page_pv"></span><span class="post-meta__separator">|</span><i class="fa fa-comments-o post-meta__icon fa-fw" aria-hidden="true"></i><span>评论数:</span><a href="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/" itemprop="commentCount"></span></a></div></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><html><head></head><body><h2 id="Mysql-安装"><a href="#Mysql-安装" class="headerlink" title="Mysql 安装"></a>Mysql 安装</h2><p>1.进入地址：<code>https://dev.mysql.com/downloads/mysql/</code> 下载mysql-8.0.11-winx64</p>
+<p>2.解压zip包，并将解压文件放入一个文件夹下,在此放在<code>D:\Program Files\</code> 目录下</p>
+<p>3.配置环境变量，在 Path下添加 <code>D:\Program Files\mysql-8.0.11-winx64\bin</code></p>
+<p><a href="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql1.png" data-fancybox="group" data-caption="mysql" class="fancybox"><img alt="mysql" title="mysql" data-src="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql1.png" class="lazyload"></a></p>
+<p>4.编写配置文件<br>我们发现解压后的目录并没有my.ini（或my-default.ini）文件，没关系可以自行创建。在安装根目录下添加 my.ini，比如我这里是：<code>D:\Program Files\mysql-8.0.11-winx64\my-default.ini</code>，写入基本配置：</p>
+<p><a href="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql2.png" data-fancybox="group" data-caption="mysql" class="fancybox"><img alt="mysql" title="mysql" data-src="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql2.png" class="lazyload"></a></p>
+<p>注意：data文件夹是初始化数据库之后才有的，my-default.ini文件默认是没有的，自己可以编写如下：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"># 设置3306端口</span><br><span class="line">port=3306</span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir=D:\Program Files\MySQL</span><br><span class="line"># 设置mysql数据库的数据的存放目录</span><br><span class="line">datadir=D:\Users\qiuzhiwen\MySQL\Data</span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=200</span><br><span class="line"># 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统</span><br><span class="line">max_connect_errors=10</span><br><span class="line"># 服务端使用的字符集默认为UTF8</span><br><span class="line">character-set-server=utf8</span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line"># 默认使用“mysql_native_password”插件认证</span><br><span class="line">default_authentication_plugin=mysql_native_password</span><br><span class="line">[mysql]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[client]</span><br><span class="line"># 设置mysql客户端连接服务端时默认使用的端口</span><br><span class="line">port=3306</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p>其中basedir和datadir可以根据自己的实际情况来决定！</p>
+<p>5.管理员身份打开 cmd 命令窗口</p>
+<p>6.MySQL服务安装及初始化</p>
+<p><a href="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql3.png" data-fancybox="group" data-caption="mysql" class="fancybox"><img alt="mysql" title="mysql" data-src="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql3.png" class="lazyload"></a></p>
+<p>执行mysqld install命令当出现Service successfully installed时表示mysql服务安装完成</p>
+<p>注意：<code>mysqld --install [服务名]</code></p>
+<p>后面的服务名可以不写，默认的名字为 mysql。当然，如果你的电脑上需要安装多个MySQL服务，就可以用不同的名字区分了，比如 mysql5 和 mysql8。</p>
+<p>Mysql初始化</p>
+<p>在MySQL安装目录的 bin 目录下执行命令：</p>
+<pre><code>`mysqld --initialize --console`</code></pre><p>执行完成后，会打印 root 用户的初始默认密码，比如：</p>
+<p><a href="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql4.png" data-fancybox="group" data-caption="mysql" class="fancybox"><img alt="mysql" title="mysql" data-src="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql4.png" class="lazyload"></a></p>
+<p>注意！执行输出结果里面有一段： <code>[Note] [MY-010454] [Server] A temporary password is generated for root@localhost: Ng*jbnKGd2_!</code>其中root@localhost:后面的“<code>Ng*jbnKGd2_!</code>”就是初始密码（不含首位空格）。在没有更改密码前，需要记住这个密码，后续登录需要用到。要是手贱，关快了，或者没记住，那也没事，删掉初始化的 datadir 目录，再执行一遍初始化命令，又会重新生成的。当然，也可以使用安全工具，强制改密码，用什么方法，自己随意。</p>
+<p>安装完成之后，就可以通过命令 <code>net start mysql</code> 启动MySQL的服务了。</p>
+<p><a href="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql5.png" data-fancybox="group" data-caption="mysql" class="fancybox"><img alt="mysql" title="mysql" data-src="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql5.png" class="lazyload"></a></p>
+<p>7.更改密码和密码认证插件</p>
+<p>进入<code>D:\Program Files\mysql-8.0.11-winx64\bin</code>路径下，执行<code>mysql -u root -p</code>命令，然后输入之前保存的密码，我这里是<code>Ng*jbnKGd2_!</code></p>
+<p>修改用户密码，在MySQL中执行命令：<br><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '新密码'</code>;</p>
+<p>修改密码验证插件，同时修改密码。</p>
+<p>可以用 命令查看一下默认安装的数据库：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">show databases;</span><br><span class="line">use mysql;</span><br><span class="line">show tables;</span><br></pre></td></tr></tbody></table></figure></div>
+
+<p><a href="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql6.png" data-fancybox="group" data-caption="mysql" class="fancybox"><img alt="mysql" title="mysql" data-src="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql6.png" class="lazyload"></a></p>
+<p>看到默认初始化了mysql数据库，其中user表里面存储MySQL用户信息。我们可以看一下默认MySQL用户：</p>
+<pre><code>select user,host,authentication_string from mysql.user;</code></pre><p><a href="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql7.png" data-fancybox="group" data-caption="mysql" class="fancybox"><img alt="mysql" title="mysql" data-src="/2020/02/24/Win10%E5%AE%89%E8%A3%85Mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/mysql7.png" class="lazyload"></a></p>
+<p>管理员root的host是localhost，代表仅限localhost登录访问。如果要允许开放其他ip登录，则需要添加新的host。如果要允许所有ip访问，可以直接修改成“%”</p>
+<p>创建用户：<code>CREATE USER 'xxh'@'%' IDENTIFIED WITH mysql_native_password BY 'xxh123!@#';</code></p>
+<h3 id="需要注意：mysql8-0加密方式修改了"><a href="#需要注意：mysql8-0加密方式修改了" class="headerlink" title="(需要注意：mysql8.0加密方式修改了)"></a>(需要注意：mysql8.0加密方式修改了)</h3><h3 id="检查用户"><a href="#检查用户" class="headerlink" title="检查用户"></a>检查用户</h3><p><code>select user, host, plugin, authentication_string from user\G</code>;</p>
+<h2 id="授权远程数据库"><a href="#授权远程数据库" class="headerlink" title="授权远程数据库"></a>授权远程数据库</h2><h3 id="授权所有权限"><a href="#授权所有权限" class="headerlink" title="授权所有权限"></a>授权所有权限</h3><p><code>GRANT ALL PRIVILEGES ON *.* TO 'xxh'@'%'</code>；</p>
+<h3 id="授权基本的查询修改权限，按需求设置"><a href="#授权基本的查询修改权限，按需求设置" class="headerlink" title="授权基本的查询修改权限，按需求设置"></a>授权基本的查询修改权限，按需求设置</h3><p><code>GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER ON *.* TO 'xxh'@'%'</code>;</p>
+<h3 id="查看用户权限-show-grants-for-39-xxh-39-39-39"><a href="#查看用户权限-show-grants-for-39-xxh-39-39-39" class="headerlink" title="查看用户权限 show grants for 'xxh'@'%';"></a>查看用户权限 <code>show grants for 'xxh'@'%'</code>;</h3><blockquote>
+<p>原文链接： <a href="https://blog.csdn.net/qq_20788055/article/details/80372577" target="_blank" rel="noopener">https://blog.csdn.net/qq_20788055/article/details/80372577</a></p>
+</blockquote>
+</body></html></div></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Mysql/">Mysql    </a></div><div class="post_share"><div class="social-share" data-image="/img/logo/mysql.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg" alt="微信"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/02/24/Vue%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%BA%93%E6%B1%87%E6%80%BB/"><img class="prev_cover lazyload" data-src="/img/logo/vue.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>Vue开源项目库汇总</span></div></a></div><div class="next-post pull_right"><a href="/2020/02/24/Sqlserver%E5%B0%8F%E6%8A%80%E5%B7%A7/"><img class="next_cover lazyload" data-src="/img/logo/Sqlserver.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>Sqlserver小技巧</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'07krhbf5QmfXvJ74VmydIejf-gzGzoHsz',
+  appKey:'Jo4RMgCd4RncyC5AyoDaxcFB',
+  placeholder:'给我的文章加点评论吧~',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></main><footer id="footer" style="background-image: url(/img/logo/mysql.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2020 By HJY</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
