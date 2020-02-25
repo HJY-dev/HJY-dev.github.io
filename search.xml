@@ -4,6 +4,122 @@
   
     
     <entry>
+      <title>Vue性能优化指南</title>
+      <link href="/2020/02/25/Vue%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/"/>
+      <url>/2020/02/25/Vue%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="一、Vue代码层面的优化"><a href="#一、Vue代码层面的优化" class="headerlink" title="一、Vue代码层面的优化"></a>一、Vue代码层面的优化</h2><h3 id="1、v-if-和-v-show-区分使用场景"><a href="#1、v-if-和-v-show-区分使用场景" class="headerlink" title="1、v-if 和 v-show 区分使用场景"></a>1、v-if 和 v-show 区分使用场景</h3><p>v-if 是 真正 的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建；也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。</p><p>v-show 就简单得多， 不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 的 display 属性进行切换。</p><p>应用场景：</p><ul><li>v-if 适用于在运行时很少改变条件，不需要频繁切换条件的场景；  </li><li>v-show 则适用于需要非常频繁切换条件的场景。</li></ul><h3 id="2、computed-和-watch-区分使用场景"><a href="#2、computed-和-watch-区分使用场景" class="headerlink" title="2、computed 和 watch  区分使用场景"></a>2、computed 和 watch  区分使用场景</h3><p>computed： 是计算属性，依赖其它属性值，并且 computed 的值有缓存，只有它依赖的属性值发生改变，下一次获取 computed 的值时才会重新计算 computed  的值；</p><p>watch： 更多的是「观察」的作用，类似于某些数据的监听回调 ，每当监听的数据变化时都会执行回调进行后续操作；</p><p>运用场景：</p><ul><li><p>当我们需要进行数值计算，并且依赖于其它数据时，应该使用 computed，因为可以利用 computed 的缓存特性，避免每次获取值时，都要重新计算；  </p></li><li><p>当我们需要在数据变化时执行异步或开销较大的操作时，应该使用 watch，使用 watch 选项允许我们执行异步操作 ( 访问一个 API )，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这些都是计算属性无法做到的。</p></li></ul><h3 id="3、v-for-遍历必须为-item-添加-key"><a href="#3、v-for-遍历必须为-item-添加-key" class="headerlink" title="3、v-for 遍历必须为 item 添加 key"></a>3、v-for 遍历必须为 item 添加 key</h3><p>在列表数据进行遍历渲染时，需要为每一项 item 设置唯一 key 值，方便 Vue.js 内部机制精准找到该条列表数据。当 state 更新时，新的状态值和旧的状态值对比，较快地定位到 diff 。</p><h3 id="4、v-for-遍历避免同时使用-v-if"><a href="#4、v-for-遍历避免同时使用-v-if" class="headerlink" title="4、v-for 遍历避免同时使用 v-if"></a>4、v-for 遍历避免同时使用 v-if</h3><p>v-for 比 v-if 优先级高，如果每一次都需要遍历整个数组，将会影响速度，尤其是当之需要渲染很小一部分的时候，必要情况下应该替换成 computed 属性。</p><p>推荐：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><ul><br><span class="line">  <li< span><br><span class="line">    v-for="user in activeUsers"</span><br><span class="line">    :key="user.id"></span><br><span class="line">    {{ user.name }}</span><br><span class="line">  </span><br><span class="line"></span></li<></span></ul></span><br><span class="line">computed: {</span><br><span class="line">  activeUsers: function () {</span><br><span class="line">    return this.users.filter(function (user) {</span><br><span class="line">   return user.isActive</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div><p>不推荐：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><ul><br><span class="line">  <li< span><br><span class="line">    v-for="user in users"</span><br><span class="line">    v-if="user.isActive"</span><br><span class="line">    :key="user.id"></span><br><span class="line">    {{ user.name }}</span><br><span class="line">  </span><br><span class="line"></span></li<></span></ul></span><br></pre></td></tr></tbody></table></figure></div><h3 id="5、长列表性能优化"><a href="#5、长列表性能优化" class="headerlink" title="5、长列表性能优化"></a>5、长列表性能优化</h3><p>Vue 会通过 Object.defineProperty 对数据进行劫持，来实现视图响应数据的变化，然而有些时候我们的组件就是纯粹的数据展示，不会有任何改变，我们就不需要 Vue 来劫持我们的数据，在大量数据展示的情况下，这能够很明显的减少组件初始化的时间，那如何禁止 Vue 劫持我们的数据呢？可以通过 Object.freeze 方法来冻结一个对象，一旦被冻结的对象就再也不能被修改了。</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">export default {</span><br><span class="line">  data: () => ({</span><br><span class="line">    users: {}</span><br><span class="line">  }),</span><br><span class="line">  async created() {</span><br><span class="line">    const users = await axios.get("/api/users");</span><br><span class="line">    this.users = Object.freeze(users);</span><br><span class="line">  }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure></div><h3 id="6、事件的销毁"><a href="#6、事件的销毁" class="headerlink" title="6、事件的销毁"></a>6、事件的销毁</h3><p>Vue 组件销毁时，会自动清理它与其它实例的连接，解绑它的全部指令及事件监听器，但是仅限于组件本身的事件。如果在 js 内使用 addEventListene 等方式是不会自动销毁的，我们需要在组件销毁时手动移除这些事件的监听，以免造成内存泄露，如：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">created() {</span><br><span class="line">  addEventListener('click', this.click, false)</span><br><span class="line">},</span><br><span class="line">beforeDestroy() {</span><br><span class="line">  removeEventListener('click', this.click, false)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div><h3 id="7、图片资源懒加载"><a href="#7、图片资源懒加载" class="headerlink" title="7、图片资源懒加载"></a>7、图片资源懒加载</h3><p>对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到可视区域后再去加载。这样对于页面加载性能上会有很大的提升，也提高了用户体验。</p><h3 id="8、路由懒加载"><a href="#8、路由懒加载" class="headerlink" title="8、路由懒加载"></a>8、路由懒加载</h3><p>Vue  是单页面应用，可能会有很多的路由引入 ，这样使用 webpcak 打包后的文件很大，当进入首页时，加载的资源过多，页面会出现白屏的情况，不利于用户体验。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应的组件，这样就更加高效了。这样会大大提高首屏显示的速度，但是可能其他的页面的速度就会降下来。</p><p>路由懒加载：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const Foo = () => import('./Foo.vue')</span><br><span class="line">const router = new VueRouter({</span><br><span class="line">  routes: [</span><br><span class="line">    { path: '/foo', component: Foo }</span><br><span class="line">  ]</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure></div><h3 id="9、第三方插件的按需引入"><a href="#9、第三方插件的按需引入" class="headerlink" title="9、第三方插件的按需引入"></a>9、第三方插件的按需引入</h3><p>我们在项目中经常会需要引入第三方插件，如果我们直接引入整个插件，会导致项目的体积太大，我们可以借助 babel-plugin-component ，然后可以只引入需要的组件，以达到减小项目体积的目的。</p><h3 id="10、优化无限列表性能"><a href="#10、优化无限列表性能" class="headerlink" title="10、优化无限列表性能"></a>10、优化无限列表性能</h3><p>如果你的应用存在非常长或者无限滚动的列表，那么需要采用 窗口化 的技术来优化性能，只需要渲染少部分区域的内容，减少重新渲染组件和创建 dom 节点的时间。你可以参考以下开源项目 vue-virtual-scroll-list 和 vue-virtual-scroller  来优化这种无限列表的场景的。</p><h3 id="11、服务端渲染-SSR-or-预渲染"><a href="#11、服务端渲染-SSR-or-预渲染" class="headerlink" title="11、服务端渲染 SSR or 预渲染"></a>11、服务端渲染 SSR or 预渲染</h3><p>服务端渲染是指 Vue 在客户端将标签渲染成的整个 html 片段的工作在服务端完成，服务端形成的 html 片段直接返回给客户端这个过程就叫做服务端渲染。</p><p>（1）服务端渲染的优点：  </p><ul><li><p>更好的 SEO：因为 SPA 页面的内容是通过 Ajax 获取，而搜索引擎爬取工具并不会等待 Ajax 异步完成后再抓取页面内容，所以在 SPA 中是抓取不到页面通过 Ajax 获取到的内容；而 SSR 是直接由服务端返回已经渲染好的页面（数据已经包含在页面中），所以搜索引擎爬取工具可以抓取渲染好的页面；</p></li><li><p>更快的内容到达时间（首屏加载更快）：SPA 会等待所有 Vue 编译后的 js 文件都下载完成后，才开始进行页面的渲染，文件下载等需要一定的时间等，所以首屏渲染需要一定的时间；SSR 直接由服务端渲染好页面直接返回显示，无需等待下载 js 文件及再去渲染等，所以 SSR 有更快的内容到达时间；</p></li></ul><p>（2）服务端渲染的缺点：</p><ul><li><p>更多的开发条件限制：例如服务端渲染只支持 beforCreate 和 created 两个钩子函数，这会导致一些外部扩展库需要特殊处理，才能在服务端渲染应用程序中运行；并且与可以部署在任何静态文件服务器上的完全静态单页面应用程序 SPA 不同，服务端渲染应用程序，需要处于 Node.js server 运行环境；</p></li><li><p>更多的服务器负载：在 Node.js 中渲染完整的应用程序，显然会比仅仅提供静态文件的 server 更加大量占用CPU 资源，因此如果你预料在高流量环境下使用，请准备相应的服务器负载，并明智地采用缓存策略。  </p></li></ul><p>如果你的项目的 SEO 和 首屏渲染是评价项目的关键指标，那么你的项目就需要服务端渲染来帮助你实现最佳的初始加载性能和 SEO，具体的 Vue SSR 如何实现，可以参考作者的另一篇文章《Vue SSR 踩坑之旅》。</p><p>如果你的 Vue 项目只需改善少数营销页面（例如  <code>/， /about， /contact</code> 等）的 SEO，那么你可能需要预渲染，在构建时 (build time) 简单地生成针对特定路由的静态 HTML 文件。优点是设置预渲染更简单，并可以将你的前端作为一个完全静态的站点，具体你可以使用 <code>prerender-spa-plugin</code> 就可以轻松地添加预渲染 。</p><h2 id="二、webpack-配置层面的优化"><a href="#二、webpack-配置层面的优化" class="headerlink" title="二、webpack 配置层面的优化"></a>二、webpack 配置层面的优化</h2><h3 id="1、Webpack-对图片进行压缩"><a href="#1、Webpack-对图片进行压缩" class="headerlink" title="1、Webpack 对图片进行压缩"></a>1、Webpack 对图片进行压缩</h3><p>在 vue 项目中除了可以在 webpack.base.conf.js 中 url-loader 中设置 limit 大小来对图片处理，对小于 limit 的图片转化为 base64 格式，其余的不做操作。所以对有些较大的图片资源，在请求资源的时候，加载会很慢，我们可以用 image-webpack-loader来压缩图片：</p><p>（1）首先，安装 image-webpack-loader  ：</p><pre><code>npm install image-webpack-loader --save-dev</code></pre><p>（2）然后，在 webpack.base.conf.js  中进行配置：<code>image-webpack-loader</code></p><h3 id="2、减少-ES6-转为-ES5-的冗余代码"><a href="#2、减少-ES6-转为-ES5-的冗余代码" class="headerlink" title="2、减少 ES6 转为 ES5 的冗余代码"></a>2、减少 ES6 转为 ES5 的冗余代码</h3><p>（1）首先，安装 babel-plugin-transform-runtime ：</p><pre><code>npm install babel-plugin-transform-runtime --save-dev</code></pre><p>（2）然后，修改 .babelrc  配置文件为：</p><pre><code>"plugins": ["transform-runtime"]</code></pre><h3 id="3、提取公共代码"><a href="#3、提取公共代码" class="headerlink" title="3、提取公共代码"></a>3、提取公共代码</h3><h2 id="三、基础的-Web-技术层面的优化"><a href="#三、基础的-Web-技术层面的优化" class="headerlink" title="三、基础的 Web 技术层面的优化"></a>三、基础的 Web 技术层面的优化</h2><h3 id="1、开启-gzip-压缩"><a href="#1、开启-gzip-压缩" class="headerlink" title="1、开启 gzip 压缩"></a>1、开启 gzip 压缩</h3><ul><li><p>安装：<br>  npm install compression –save</p></li><li><p>添加代码逻辑：</p></li></ul><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var compression = require('compression');</span><br><span class="line">var app = express();</span><br><span class="line">app.use(compression())</span><br></pre></td></tr></tbody></table></figure></div><ul><li>重启服务，观察网络面板里面的 response header，如果看到<code>Content-Encoding:gzip</code> 则表明 gzip 开启成功 ：</li></ul><h3 id="2、浏览器缓存"><a href="#2、浏览器缓存" class="headerlink" title="2、浏览器缓存"></a>2、浏览器缓存</h3><p>为了提高用户加载页面的速度，对静态资源进行缓存是非常必要的，根据是否需要重新向服务器发起请求来分类，将 HTTP 缓存规则分为两大类（强制缓存，对比缓存），如果对缓存机制还不是了解很清楚的，可以参考作者写的关于 HTTP 缓存的文章《深入理解HTTP缓存机制及原理》，这里不再赘述。</p><h3 id="3、CDN-的使用"><a href="#3、CDN-的使用" class="headerlink" title="3、CDN 的使用"></a>3、CDN 的使用</h3><p>浏览器从服务器上下载 CSS、js 和图片等文件时都要和服务器连接，而大部分服务器的带宽有限，如果超过限制，网页就半天反应不过来。而 CDN 可以通过不同的域名来加载文件，从而使下载文件的并发连接数大大增加，且CDN 具有更好的可用性，更低的网络延迟和丢包率 。</p><h3 id="4、使用-Chrome-Performance-查找性能瓶颈"><a href="#4、使用-Chrome-Performance-查找性能瓶颈" class="headerlink" title="4、使用 Chrome Performance 查找性能瓶颈"></a>4、使用 Chrome Performance 查找性能瓶颈</h3><p>Chrome 的 Performance 面板可以录制一段时间内的 js 执行细节及时间。使用 Chrome 开发者工具分析页面性能的步骤如下。</p><ol><li><p>打开 Chrome 开发者工具，切换到 Performance 面板</p></li><li><p>点击 Record 开始录制</p></li><li><p>刷新页面或展开某个节点</p></li><li><p>点击 Stop 停止录制</p></li></ol><blockquote><p>原文地址：<br><a href="https://mp.weixin.qq.com/s?__biz=MzIyMjQ0MTU0NA==&mid=2247494339&idx=3&sn=99db2bb39de4dc6f17f61fe60b180f71&chksm=e82fd3e4df585af2ffb05e507d7f5ad17d1152ad9dce35f242b5318c965019bc5475a9f6141e&mpshare=1&scene=1&srcid=&sharer_sharetime=1581231718358&sharer_shareid=b105a99d0b987865d2122100dce7799a&key=5440b516a3b776b7baca0b3fbfe50ff75924b841ff2a9bb1a765091a6bd5b41220f802214d70f439a94fa1a9320926922cf461d5d9e357ced52ed7b7930158fa2e06ab6d3817c9782e33f152997a10da&ascene=1&uin=MjM2MzIxNjY3Nw%3D%3D&devicetype=Windows+10&version=62080079&lang=zh_CN&exportkey=Aav6rLjgEf%2BC4p1t290g2rU%3D&pass_ticket=ovqmRYnNK82rYmnkER8Wpxc7sni74Fh4B3sELEzyTSTRbRzLjF0yEWz3fUQd8shA" target="_blank" rel="noopener">《最全的 Vue 性能优化指南，经典收藏》</a></p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从零开始部署Kubernetes</title>
+      <link href="/2020/02/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2Kubernetes/"/>
+      <url>/2020/02/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2Kubernetes/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="从零开始部署Kubernetes-v1-17-1集群"><a href="#从零开始部署Kubernetes-v1-17-1集群" class="headerlink" title="从零开始部署Kubernetes v1.17.1集群"></a>从零开始部署Kubernetes v1.17.1集群</h2><h3 id="一、系统环境"><a href="#一、系统环境" class="headerlink" title="一、系统环境"></a>一、系统环境</h3><ul><li>操作系统：Centos 7.7</li><li>客户端电脑：macOS Catalina 10.15</li><li>虚拟机：Virtualbox 6.0</li><li>虚拟机网卡：桥接方式</li></ul><h3 id="二、配置虚拟机"><a href="#二、配置虚拟机" class="headerlink" title="二、配置虚拟机"></a>二、配置虚拟机</h3><h3 id="三、安装Centos-7"><a href="#三、安装Centos-7" class="headerlink" title="三、安装Centos 7"></a>三、安装Centos 7</h3><h3 id="四、配置网络"><a href="#四、配置网络" class="headerlink" title="四、配置网络"></a>四、配置网络</h3><h3 id="五、更新系统"><a href="#五、更新系统" class="headerlink" title="五、更新系统"></a>五、更新系统</h3><h3 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h3><blockquote><p>参考资料：<br><a href="https://www.jianshu.com/c/dcf0959a8fc5" target="_blank" rel="noopener">《从零开始部署Kubernetes v1.17.1集群系列》</a></p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Kubernetes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 微服务 </tag>
+            
+            <tag> Kubernetes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker镜像仓库搭建</title>
+      <link href="/2020/02/25/Docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/"/>
+      <url>/2020/02/25/Docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Docker镜像仓库的搭建"><a href="#Docker镜像仓库的搭建" class="headerlink" title="Docker镜像仓库的搭建"></a>Docker镜像仓库的搭建</h2><h3 id="一、Registry私有镜像仓库"><a href="#一、Registry私有镜像仓库" class="headerlink" title="一、Registry私有镜像仓库"></a>一、Registry私有镜像仓库</h3><h3 id="二、Docker-Hub公共镜像仓库"><a href="#二、Docker-Hub公共镜像仓库" class="headerlink" title="二、Docker Hub公共镜像仓库"></a>二、Docker Hub公共镜像仓库</h3><h3 id="三、Harbor企业级镜像仓库"><a href="#三、Harbor企业级镜像仓库" class="headerlink" title="三、Harbor企业级镜像仓库"></a>三、Harbor企业级镜像仓库</h3><blockquote><p>参考资料：<br>周旭龙:<a href="https://www.cnblogs.com/edisonchou/p/docker_registry_repository_setup_introduction.html" target="_blank" rel="noopener">《你必须知道的Docker镜像仓库的搭建》</a>   </p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> NetCore </tag>
+            
+            <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Asp.Net on Docker</title>
+      <link href="/2020/02/25/Asp-Net-on-Docker/"/>
+      <url>/2020/02/25/Asp-Net-on-Docker/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="ASP-NET-Core-on-Docker"><a href="#ASP-NET-Core-on-Docker" class="headerlink" title="ASP.NET Core on Docker"></a>ASP.NET Core on Docker</h2><h3 id="一、Docker极简介绍"><a href="#一、Docker极简介绍" class="headerlink" title="一、Docker极简介绍"></a>一、Docker极简介绍</h3><h4 id="1-基本介绍"><a href="#1-基本介绍" class="headerlink" title="1.基本介绍"></a>1.基本介绍</h4><p>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。</p><p>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p><p>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。</p><h4 id="2-Docker的应用场景"><a href="#2-Docker的应用场景" class="headerlink" title="2.Docker的应用场景"></a>2.Docker的应用场景</h4><ul><li>Web 应用的自动化打包和发布。</li><li>自动化测试和持续集成、发布。</li><li>在服务型环境中部署和调整数据库或其他的后台应用。</li><li>从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。</li></ul><h4 id="3-Docker-的优点"><a href="#3-Docker-的优点" class="headerlink" title="3.Docker 的优点"></a>3.Docker 的优点</h4><p>Docker 是一个用于开发，交付和运行应用程序的开放平台。<br>Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。<br>借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。<br>通过利用 Docker 的方法来快速交付，测试和部署代码，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。</p><ol><li>快速，一致地交付您的应用程序</li><li>响应式部署和扩展</li><li>在同一硬件上运行更多工作负载</li></ol><h3 id="二、Docker-架构"><a href="#二、Docker-架构" class="headerlink" title="二、Docker 架构"></a>二、Docker 架构</h3><h4 id="Docker-包括三个基本概念"><a href="#Docker-包括三个基本概念" class="headerlink" title="Docker 包括三个基本概念:"></a>Docker 包括三个基本概念:</h4><ul><li>镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</li><li>容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</li><li>仓库（Repository）：仓库可看着一个代码控制中心，用来保存镜像。</li></ul><p>Docker 使用客户端-服务器 (C/S) 架构模式，使用远程API来管理和创建Docker容器。</p><p>Docker 容器通过 Docker 镜像来创建。</p><p>容器与镜像的关系类似于面向对象编程中的对象与类。</p><h3 id="三、Docker的安装"><a href="#三、Docker的安装" class="headerlink" title="三、Docker的安装"></a>三、Docker的安装</h3><h4 id="以centos为例："><a href="#以centos为例：" class="headerlink" title="以centos为例："></a>以centos为例：</h4><p>1.安装环境，查看Centos版本      </p><pre><code>lsb_release -a</code></pre><p>ps: 命令不存在请执行<code>yum install -y redhat-lsb</code> 进行安装  </p><p>CentOS 7安装docker要求系统为64位、系统内核版本为 3.10 以上，用以下命令查看位数</p><pre><code>uname -r</code></pre><p>2.yum源安装  </p><p>2.1  查看是否已安装docker列表  </p><pre><code>yum list installed | grep docker</code></pre><p>2.2 安装docker  </p><pre><code>yum -y install docker</code></pre><p>ps: -y表示不询问安装，直到安装成功，安装完后再次查看安装列表</p><p>2.3 执行 <code>yum list install | grep docker</code> 查看</p><p>2.4 启动docker</p><pre><code>systemctl start docker</code></pre><p>2.5 设置开机启动</p><pre><code>systemctl enable docker.service</code></pre><p>2.6  查看docker服务状态</p><pre><code>systemctl status docker</code></pre><p>2.7 配置docker加速器<br>执行命令： <code>vim /etc/docker/daemon.json</code></p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">{</span><br><span class="line">"registry-mirrors": ["https://d8b3zdiw.mirror.aliyuncs.com"]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></div><p>2.8 重启docker服务</p><pre><code>systemctl daemon-reloadsystemctl restart docker</code></pre><h3 id="四、ASP-NET-Core-on-Docker配置"><a href="#四、ASP-NET-Core-on-Docker配置" class="headerlink" title="四、ASP.NET Core on Docker配置"></a>四、ASP.NET Core on Docker配置</h3><p>1 拉取dotnet/aspnetcore的最新镜像</p><pre><code>docker pull microsoft/aspnetcore:latest</code></pre><p>2 <code>docker images</code> 验证镜像是否拉取成功</p><p>3 本地vs 编辑 dockerfile 文件</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 父镜像</span><br><span class="line">FROM microsoft/aspnetcore:3.1</span><br><span class="line"></span><br><span class="line"># 设置工作目录</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># 复制发布文件到/app下</span><br><span class="line">COPY . /app</span><br><span class="line"></span><br><span class="line"># 设置端口</span><br><span class="line">EXPOSE 8810</span><br><span class="line"></span><br><span class="line"># 使用dotnet HelloWebApp.dll来运行ASP.NET Core项目，注意大小写</span><br><span class="line"></span><br><span class="line">ENTRYPOINT ["dotnet", "HelloWebApp.dll", "--server.urls", "http://*:8810"]</span><br></pre></td></tr></tbody></table></figure></div><p>4 发布这个ASP.NET Core WebAPI，并将Release文件传送到Linux服务器中</p><p>5 在linux命令端 执行 <code>cd Release文件夹</code> ，开始打包docker镜像，执行以下命令</p><pre><code>docker build -t agentservice-container:1.0 . </code></pre><p>ps：注意命令末尾<code>.</code>,<code>:1.0</code> 表示给该镜像打标记，1.0版本</p><p>6 验证镜像是否打包成功</p><pre><code>docker images</code></pre><p>7 运行docker</p><pre><code>docker run --name agentservice -d -p 8810:8810 agentservice-container:1.0</code></pre><p>ps: 如果docker run失败后再次运行会提示名称已存在，可以使用以下命令来删除容器 <code>docker rm -f [dockername]</code></p><p>如果想要docker容器在非正常退出后自动重启，可以加上–restart选项 <code>docker run --name agentservice -d -p 8810:8810 agentservice-container:1.0 --restart=always</code></p><p>8 验证docker运行效果</p><p>可以在宿主机验证，执行以下命令：</p><pre><code>curl http://192.168.120.136:8801/api</code></pre><p>远程客户端浏览器验证</p><pre><code>http://192.168.120.136:8801/api</code></pre><h3 id="五、Supervisor守护进程"><a href="#五、Supervisor守护进程" class="headerlink" title="五、Supervisor守护进程"></a>五、Supervisor守护进程</h3><p>1 安装</p><pre><code>yum install supervisor</code></pre><p>2 配置</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 进入配置目录</span><br><span class="line">cd /ect/supervisor/conf.d/</span><br><span class="line"># 创建配置文件</span><br><span class="line">touch HelloWebApp.conf</span><br><span class="line">## 编辑配置文件</span><br><span class="line">vim HelloWebApp.conf</span><br><span class="line">## 写入以下命令</span><br><span class="line">[program:HelloWebApp]</span><br><span class="line">command=dotnet HelloWebApp.dll  #要执行的命令</span><br><span class="line">directory=/home/yxd/Workspace/publish #命令执行的目录</span><br><span class="line">environment=ASPNETCORE__ENVIRONMENT=Production #环境变量</span><br><span class="line">user=www-data  #进程执行的用户身份</span><br><span class="line">stopsignal=INT</span><br><span class="line">autostart=true #是否自动启动</span><br><span class="line">autorestart=true #是否自动重启</span><br><span class="line">startsecs=1 #自动重启间隔</span><br><span class="line">stderr_logfile=/var/log/HelloWebApp.err.log #标准错误日志</span><br><span class="line">stdout_logfile=/var/log/HelloWebApp.out.log #标准输出日志</span><br><span class="line"></span><br><span class="line">## 保存退出</span><br><span class="line">:wq</span><br></pre></td></tr></tbody></table></figure></div><p>3 重新加载配置  </p><pre><code>supervisorctl shutdown && sudo supervisord -c /etc/supervisor/supervisord.conf</code></pre><p>或者直接重启Supervisor</p><pre><code>service supervisor stopservice supervisor start</code></pre><p>4 查看supervisor日志</p><pre><code>cat /etc/log/supervisor/supervisord.log</code></pre><p>5 supervisorctl使用  </p><p>通过supervisorctl对进程进行管理： <code>supervisorctl help</code></p><p>6 Supervisor UI 管理台 </p><p><code>http://localip:9001</code>，可以进行进程的重启，日志查看等操作</p><p>7 多主机统一管理</p><blockquote><p>官方推荐：<a href="http://supervisord.org/plugins.html" target="_blank" rel="noopener">http://supervisord.org/plugins.html</a><br><a href="https://github.com/Gamegos/cesi" target="_blank" rel="noopener">cesi</a>：Web-based dashboard written in Python.<br><a href="https://github.com/mlazarov/supervisord-monitor" target="_blank" rel="noopener">Supervisord-Monitor</a>：Web-based dashboard written in PHP.<br><a href="https://github.com/luxbet/supervisorui" target="_blank" rel="noopener">SupervisorUI</a>：Another Web-based dashboard written in PHP.  </p></blockquote><blockquote><p>参考资料：<br>周旭龙:<a href="https://www.cnblogs.com/edisonchou/p/aspnetcore_on_docker_foundation.html" target="_blank" rel="noopener">《.NET Core微服务之ASP.NET Core on Docker》</a><br>杨晓东:<a href="https://www.cnblogs.com/savorboard/p/dotnetcore-supervisor.html" target="_blank" rel="noopener">《ASP.NET Core Docker部署》</a><br>菜鸟教程：<a href="https://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">《Docker 教程》</a></p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> NetCore </tag>
+            
+            <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>webpack报错记录</title>
       <link href="/2020/02/24/webpack%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/"/>
       <url>/2020/02/24/webpack%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/</url>
@@ -359,9 +475,9 @@
       
         <tags>
             
-            <tag> DaoCloud </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> DaoCloud </tag>
             
             <tag> CICD </tag>
             
@@ -388,9 +504,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -415,9 +531,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -442,9 +558,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -469,9 +585,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -484,7 +600,7 @@
       <link href="/2020/02/23/Dockerfile%E8%AF%AD%E6%B3%95%E6%A2%B3%E7%90%86%E5%8F%8A%E5%AE%9E%E8%B7%B5/"/>
       <url>/2020/02/23/Dockerfile%E8%AF%AD%E6%B3%95%E6%A2%B3%E7%90%86%E5%8F%8A%E5%AE%9E%E8%B7%B5/</url>
       
-        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body></body></html>]]></content>
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="你必须知道的Dockerfile"><a href="#你必须知道的Dockerfile" class="headerlink" title="你必须知道的Dockerfile"></a>你必须知道的Dockerfile</h2><h3 id="一、关于Dockerfile"><a href="#一、关于Dockerfile" class="headerlink" title="一、关于Dockerfile"></a>一、关于Dockerfile</h3><p>在Docker中创建镜像最常用的方式，就是使用Dockerfile。<br>Dockerfile是一个Docker镜像的描述文件，我们可以理解成火箭发射的A、B、C、D…的步骤。Dockerfile其内部包含了一条条的指令，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。</p><p>一个Dockerfile的示例如下所示：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#基于centos镜像</span><br><span class="line">FROM centos</span><br><span class="line"></span><br><span class="line">#维护人的信息</span><br><span class="line">MAINTAINER The CentOS Project <303323496@qq.com></span><br><span class="line"></span><br><span class="line">#安装httpd软件包</span><br><span class="line">RUN yum -y update</span><br><span class="line">RUN yum -y install httpd</span><br><span class="line"></span><br><span class="line">#开启80端口</span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line">#复制网站首页文件至镜像中web站点下</span><br><span class="line">ADD index.html /var/www/html/index.html</span><br><span class="line"></span><br><span class="line">#复制该脚本至镜像中，并修改其权限</span><br><span class="line">ADD run.sh /run.sh</span><br><span class="line">RUN chmod 775 /run.sh</span><br><span class="line"></span><br><span class="line">#当启动容器时执行的脚本文件</span><br><span class="line">CMD ["/run.sh"]</span><br></pre></td></tr></tbody></table></figure></div><p>　　由上可知，Dockerfile结构大致分为四个部分：</p><p>　　（1）基础镜像信息</p><p>　　（2）维护者信息</p><p>　　（3）镜像操作指令</p><p>　　（4）容器启动时执行指令。</p><p>　Dockerfile每行支持一条指令，每条指令可带多个参数，支持使用以#号开头的注释。下面会对上面使用到的一些常用指令做一些介绍。</p><h3 id="二、Dockerfile常用指令"><a href="#二、Dockerfile常用指令" class="headerlink" title="二、Dockerfile常用指令"></a>二、Dockerfile常用指令</h3><p>首先，来一张通俗易懂的全景图：</p><p><a href="/2020/02/23/Dockerfile%E8%AF%AD%E6%B3%95%E6%A2%B3%E7%90%86%E5%8F%8A%E5%AE%9E%E8%B7%B5/Dockerfile.png" data-fancybox="group" data-caption="Dockerfile" class="fancybox"><img alt="Dockerfile" title="Dockerfile" data-src="/2020/02/23/Dockerfile%E8%AF%AD%E6%B3%95%E6%A2%B3%E7%90%86%E5%8F%8A%E5%AE%9E%E8%B7%B5/Dockerfile.png" class="lazyload"></a></p><h4 id="2-1-FROM"><a href="#2-1-FROM" class="headerlink" title="2.1 FROM"></a>2.1 FROM</h4><p>指明构建的新镜像是来自于哪个基础镜像，例如:</p><pre><code>FROM centos:6</code></pre><h4 id="2-2-MAINTAINER"><a href="#2-2-MAINTAINER" class="headerlink" title="2.2 MAINTAINER"></a>2.2 MAINTAINER</h4><p>指明镜像维护着及其联系方式（一般是邮箱地址），例如：</p><pre><code>MAINTAINER Edison Zhou <edisonchou@hotmail.com></edisonchou@hotmail.com></code></pre><p>不过，MAINTAINER并不推荐使用，更推荐使用LABEL来指定镜像作者，例如：</p><pre><code>LABEL maintainer="edisonzhou.cn"</code></pre><h4 id="2-3-RUN"><a href="#2-3-RUN" class="headerlink" title="2.3 RUN"></a>2.3 RUN</h4><p>构建镜像时运行的Shell命令，例如：</p><pre><code>RUN ["yum", "install", "httpd"]RUN yum install httpd</code></pre><p>又如，我们在使用微软官方ASP.NET Core Runtime镜像时往往会加上以下RUN命令，弥补无法在默认镜像下使用Drawing相关接口的缺憾：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">FROM microsoft/dotnet:2.2.1-aspnetcore-runtime</span><br><span class="line">RUN apt-get update</span><br><span class="line">RUN apt-get install -y libgdiplus</span><br><span class="line">RUN apt-get install -y libc6-dev</span><br><span class="line">RUN ln -s /usr/lib/libgdiplus.so /lib/x86_64-linux-gnu/libgdiplus.so</span><br></pre></td></tr></tbody></table></figure></div><h4 id="2-4-CMD"><a href="#2-4-CMD" class="headerlink" title="2.4 CMD"></a>2.4 CMD</h4><p>启动容器时执行的Shell命令，例如：</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CMD ["-C", "/start.sh"] </span><br><span class="line">CMD ["/usr/sbin/sshd", "-D"] </span><br><span class="line">CMD /usr/sbin/sshd -D</span><br></pre></td></tr></tbody></table></figure></div><h4 id="2-5-EXPOSE"><a href="#2-5-EXPOSE" class="headerlink" title="2.5 EXPOSE"></a>2.5 EXPOSE</h4><p>声明容器运行的服务端口，例如：</p><pre><code>EXPOSE 80 443</code></pre><h4 id="2-6-ENV"><a href="#2-6-ENV" class="headerlink" title="2.6 ENV"></a>2.6 ENV</h4><p>设置环境内环境变量，例如：</p><pre><code>ENV MYSQL_ROOT_PASSWORD 123456ENV JAVA_HOME /usr/local/jdk1.8.0_45</code></pre><h4 id="2-7-ADD"><a href="#2-7-ADD" class="headerlink" title="2.7 ADD"></a>2.7 ADD</h4><p>拷贝文件或目录到镜像中，例如：  </p><pre><code>ADD <src>...<dest>ADD html.tar.gz /var/www/htmlADD https://xxx.com/html.tar.gz /var/www/html</dest></src></code></pre><p>PS：如果是URL或压缩包，会自动下载或自动解压。</p><h4 id="2-8-COPY"><a href="#2-8-COPY" class="headerlink" title="2.8 COPY"></a>2.8 COPY</h4><p>拷贝文件或目录到镜像中，用法同ADD，只是不支持自动下载和解压，例如：</p><pre><code>COPY ./start.sh /start.sh</code></pre><h4 id="2-9-ENTRYPOINT"><a href="#2-9-ENTRYPOINT" class="headerlink" title="2.9 ENTRYPOINT"></a>2.9 ENTRYPOINT</h4><p>启动容器时执行的Shell命令，同CMD类似，只是由ENTRYPOINT启动的程序不会被docker run命令行指定的参数所覆盖，而且，这些命令行参数会被当作参数传递给ENTRYPOINT指定指定的程序，例如：</p><pre><code>ENTRYPOINT ["/bin/bash", "-C", "/start.sh"]ENTRYPOINT /bin/bash -C '/start.sh'</code></pre><p>PS：Dockerfile文件中也可以存在多个ENTRYPOINT指令，但仅有最后一个会生效。</p><h4 id="2-10-VOLUME"><a href="#2-10-VOLUME" class="headerlink" title="2.10 VOLUME"></a>2.10 VOLUME</h4><p>指定容器挂载点到宿主机自动生成的目录或其他容器，例如：</p><pre><code>VOLUME ["/var/lib/mysql"]</code></pre><p>PS：一般不会在Dockerfile中用到，更常见的还是在docker run的时候指定-v数据卷。</p><h4 id="2-11-USER"><a href="#2-11-USER" class="headerlink" title="2.11 USER"></a>2.11 USER</h4><p>为RUN、CMD和ENTRYPOINT执行Shell命令指定运行用户，例如：</p><pre><code>USER <user>[:<usergroup>]USER <uid>[:<uid>]USER edisonzhou</uid></uid></usergroup></user></code></pre><h4 id="2-12-WORKDIR"><a href="#2-12-WORKDIR" class="headerlink" title="2.12 WORKDIR"></a>2.12 WORKDIR</h4><p>为RUN、CMD、ENTRYPOINT以及COPY和AND设置工作目录，例如：</p><pre><code>WORKDIR /data</code></pre><h4 id="2-13-HEALTHCHECK"><a href="#2-13-HEALTHCHECK" class="headerlink" title="2.13 HEALTHCHECK"></a>2.13 HEALTHCHECK</h4><p>告诉Docker如何测试容器以检查它是否仍在工作，即健康检查，例如：</p><pre><code>HEALTHCHECK --interval=5m --timeout=3s --retries=3 \CMD curl -f http:/localhost/ || exit 1</code></pre><p>其中，一些选项的说明：</p><ul><li>interval=DURATION (default: 30s)：每隔多长时间探测一次，默认30秒  </li></ul><ul><li>timeout= DURATION (default: 30s)：服务响应超时时长，默认30秒  </li><li>start-period= DURATION (default: 0s)：服务启动多久后开始探测，默认0秒  </li><li>retries=N (default: 3)：认为检测失败几次为宕机，默认3次 </li></ul><p>一些返回值的说明：  </p><ol><li>：容器成功是健康的，随时可以使用  </li><li>：不健康的容器无法正常工作  </li><li>：保留不使用此退出代码  </li></ol><h4 id="2-14-ARG"><a href="#2-14-ARG" class="headerlink" title="2.14 ARG"></a>2.14 ARG</h4><p>在构建镜像时，指定一些参数，例如：</p><pre><code>FROM centos:6ARG user # ARG user=rootUSER $user</code></pre><p>这时，我们在docker build时可以带上自定义参数user了，如下所示：</p><pre><code>docker build --build-arg user=edisonzhou Dockerfile .</code></pre><blockquote><p>原文链接： <a href="https://www.cnblogs.com/edisonchou/p/dockerfile_inside_introduction.html" target="_blank" rel="noopener">https://www.cnblogs.com/edisonchou/p/dockerfile_inside_introduction.html</a><br>相关推荐： <a href="https://www.cnblogs.com/edisonchou/p/aspnet_core_k8s_artcles_index.html" target="_blank" rel="noopener">https://www.cnblogs.com/edisonchou/p/aspnet_core_k8s_artcles_index.html</a></p></blockquote></body></html>]]></content>
       
       
       <categories>
@@ -496,9 +612,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -523,9 +639,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -550,9 +666,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
