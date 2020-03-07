@@ -4,6 +4,124 @@
   
     
     <entry>
+      <title>跨域问题的多种解决方案</title>
+      <link href="/2020/03/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <url>/2020/03/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="跨域问题的多种解决方案"><a href="#跨域问题的多种解决方案" class="headerlink" title="跨域问题的多种解决方案"></a>跨域问题的多种解决方案</h2><ol><li><p>服务器设置响应头 <code>response.setHeader("Access-Control-Allow-Origin", "*")</code></p></li><li><p>jsonp方式，只能发送get请求，也需要服务器的配合支持。</p></li><li><p>利用动态创建Script标签，script没有同源策略的限制，是可以跨域的。</p></li></ol><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//声明回调函数</span><br><span class="line">funtion callback(result)</span><br><span class="line">{</span><br><span class="line">var data = JSON.stringify(result);</span><br><span class="line">console.log(data);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">$(document).ready(function () {</span><br><span class="line">    $("#btn").click(function () {</span><br><span class="line">        //向头部输入一个脚本，该脚本发起一个跨域请求</span><br><span class="line">        $("head").append("<script src="http://localhost:9090/GetStudentInfo?callback=callback"><\/script>");</span><br><span class="line">    });</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure></div><ol start="4"><li>Nginx 代理服务器</li></ol><p>跨域问题是浏览器的同源策略限制，服务器之间是没有的，那我们先把请求给我们的代理服务器，再让我们的代理服务器去调用这个接口，在发送给前端就可以了。</p></body></html></script></span></pre></td></tr></tbody></table></figure></div></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 跨域 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微服务系列之IdentityServer4</title>
+      <link href="/2020/03/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E5%88%97%E4%B9%8BIdentityServer4/"/>
+      <url>/2020/03/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E5%88%97%E4%B9%8BIdentityServer4/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 微服务 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Docker </tag>
+            
+            <tag> NetCore </tag>
+            
+            <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微服务系列之Ocelot</title>
+      <link href="/2020/03/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E5%88%97%E4%B9%8BOcelot/"/>
+      <url>/2020/03/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E5%88%97%E4%B9%8BOcelot/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 微服务 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Docker </tag>
+            
+            <tag> NetCore </tag>
+            
+            <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微服务系列之Consul</title>
+      <link href="/2020/03/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E5%88%97%E4%B9%8BConsul/"/>
+      <url>/2020/03/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%B3%BB%E5%88%97%E4%B9%8BConsul/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 微服务 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Docker </tag>
+            
+            <tag> NetCore </tag>
+            
+            <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C# 获取Utc时间以及Datetime互相转化</title>
       <link href="/2020/03/02/C-%E8%8E%B7%E5%8F%96Utc%E6%97%B6%E9%97%B4%E4%BB%A5%E5%8F%8ADatetime%E4%BA%92%E7%9B%B8%E8%BD%AC%E5%8C%96/"/>
       <url>/2020/03/02/C-%E8%8E%B7%E5%8F%96Utc%E6%97%B6%E9%97%B4%E4%BB%A5%E5%8F%8ADatetime%E4%BA%92%E7%9B%B8%E8%BD%AC%E5%8C%96/</url>
@@ -715,31 +833,6 @@
             <tag> Vue </tag>
             
             <tag> Node </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>面试题汇总(一)</title>
-      <link href="/2020/02/24/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB-%E4%B8%80/"/>
-      <url>/2020/02/24/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB-%E4%B8%80/</url>
-      
-        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><p>简答题</p><ol><li>谈谈你关于前端优化的经验。</li></ol><ol start="2"><li>谈谈如何使用前端缓存。</li></ol><p>3.单个请求数据量过大，如何优化？请做详细描述！</p><ol start="4"><li>css  Javascript如何压缩引入？</li></ol><p>5.谈谈css js 加载的顺序对页面性能的影响！</p><p>6.如果页面中图片太多，从性能上来说，如何提高性能？</p><ol start="7"><li>详解IIS如何调优？</li></ol><ol start="8"><li>谈谈你在之前工作中，有关于后端性能优化的经验！</li></ol><ol start="9"><li>谈谈你了解的缓存！</li></ol><p>10.请描述Redis的特点：</p><ol start="11"><li>谈谈stringbuilder和stringbuffer区别？</li></ol><p>12．谈谈ArrayList和List<>的性能区别。</p><p>13．说说   123+”字符串”  和  123.Tostring() 的区别。</p><p>14.代码中出现 字符串A.ToUpper()==字符串B  或者  字符串A .ToLower()==字符串B，你会怎么处理？</p><p>15.代码中出现 strCriteria.Trim() == “”， strCriteria为字符串类型变量；你会怎么调整？</p><p>16．说说装箱拆箱的为什么会有性能问题？</p><p>17．Object类型使用引发的性能问题，如何解决？</p><p>18.说说foreach 和 for 循环从性能角度的区别。</p><p>19．在多任务执行的时候，使用多线程，应该注意些什么？</p><ol start="20"><li>在一个网站首页，分为多块的数据，例如：有本周top10，本月top10,个人考勤等！多种数据在首页展示，如果让你来开发，除了使用ajax异步加载，还有什么其他方法能够让数据快速的加载出来？请详解开发思路！</li></ol><p>21．一个电商系统中，某一些订单的数据，可能来源于第三方接口，也可能来源于缓存，也有可能来源于数据库，如何以最高效的方式获取到数据？请详解你的思路？</p><p>22．如果有100个任务需要执行，需要快速的去完成，使用多线程如何实现？是否开启100个线程？为什么？</p><p>23说说在程序中连接数据库查询，如何避免一些性能问题？</p><p>24．谈谈在写sql语句的时候，如何提高性能？</p><ol start="25"><li>谈谈数据库的索引！使用索引需要注意些什么？</li></ol><p>26．谈谈数据库分库分表的方式。</p><p>27．谈谈如何做数据库集群？</p><p>28．谈谈数据库如何配置读写分离？</p><ol start="29"><li>谈谈你了解到的队列有哪些？</li></ol><p>30．如果一个系统出现性能瓶颈，让你来处理的话，说说你的性能优化计划。</p><p>1、使用MVC模式有什么优点？</p><p>2、请简述使用ASP.NET MVC框架访问一个页面的执行流程。</p><p>3、请说明MVC  Filter的特点、思想；框架提供的Filter有哪些？如何扩展Filter？</p><p>4、请说明MVC中Filter的集中注册方式。</p><p>5、请详解MVC路由的特点！如何扩展路由？</p><p>6、请说明MVC中global.asax.cs 文件的意义？</p><p>7、请说明在MVC视图中如果不适用using关键字，如何引用某个自定义实体类型！</p><p>8、请说明MVC中Area的作用以及在MVC中如果使用了Area以后我们需要注意什么？</p><p>9、请说明如何抓取并处理，异常Filter 抓取不到的异常？</p></body></html>]]></content>
-      
-      
-      <categories>
-          
-          <category> 面试题 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 面试题 </tag>
             
         </tags>
       
@@ -1730,6 +1823,31 @@
     
     
     <entry>
+      <title>面试题汇总之Vue篇</title>
+      <link href="/2019/03/07/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%8BVue%E7%AF%87/"/>
+      <url>/2019/03/07/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%8BVue%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h3 id="1-active-class-是哪个组件的属性？嵌套路由怎么定义？"><a href="#1-active-class-是哪个组件的属性？嵌套路由怎么定义？" class="headerlink" title="1. active-class 是哪个组件的属性？嵌套路由怎么定义？"></a>1. active-class 是哪个组件的属性？嵌套路由怎么定义？</h3><p>答：vue-router 模块的 router-link 组件。</p><h3 id="2-怎么定义-vue-router-的动态路由？怎么获取传过来的动态参数？"><a href="#2-怎么定义-vue-router-的动态路由？怎么获取传过来的动态参数？" class="headerlink" title="2. 怎么定义 vue-router 的动态路由？怎么获取传过来的动态参数？"></a>2. 怎么定义 vue-router 的动态路由？怎么获取传过来的动态参数？</h3><p>答：在路由的 path 属性上加上 【/:id】。获取：router.params.id。</p><h3 id="3-vue-router-有哪几种导航钩子？"><a href="#3-vue-router-有哪几种导航钩子？" class="headerlink" title="3. vue-router 有哪几种导航钩子？"></a>3. vue-router 有哪几种导航钩子？</h3><p>答：<br>（1）全局导航钩子：beforeEach()、afterEach()<br>（2）路由独享组件：beforeEnter()<br>（3）组件内的钩子：beforeRouteEnter()、beforeRouteUpdate()、beforeRouteLeave()</p><h3 id="4-scss-是什么？使用步骤是？有那几大特性？"><a href="#4-scss-是什么？使用步骤是？有那几大特性？" class="headerlink" title="4. scss 是什么？使用步骤是？有那几大特性？"></a>4. scss 是什么？使用步骤是？有那几大特性？</h3><p>答:<br>（1）预处理 css，把 css 当成函数编写，定义变量，嵌套<br>（2）npm 下三个 loader （sass-loader、css-loader、node-sass）;<br>在 build 文件夹下 webpack.base.conf.js 文件，在module 中添加规则 { test: /.sass变量名称=值）；</p><h3 id="5-mint-ui是什么？怎么使用？至少说出三个组件的使用方法？"><a href="#5-mint-ui是什么？怎么使用？至少说出三个组件的使用方法？" class="headerlink" title="5. mint-ui是什么？怎么使用？至少说出三个组件的使用方法？"></a>5. mint-ui是什么？怎么使用？至少说出三个组件的使用方法？</h3><p>答：<br>（1）基于 vue 的前端组件库。npm 安装，然后 import 样式和js，Vue.use(mintUI)全局引入。<br>（2）在单个组件内部引入：import { Toast } from ‘mint-ui’<br>（3）组件1：Toast(‘登录成功’)；<br>组件2：mint-header<br>组件3：mint-swiper</p><h3 id="6-v-model-是什么？怎么使用？vue中标签怎么绑定事件？"><a href="#6-v-model-是什么？怎么使用？vue中标签怎么绑定事件？" class="headerlink" title="6. v-model 是什么？怎么使用？vue中标签怎么绑定事件？"></a>6. v-model 是什么？怎么使用？vue中标签怎么绑定事件？</h3><p>答：是可以实现双向数据绑定的指令（v-class、v-for 、v-if、v-show、v-on）</p><div @click="someFunc"><h3 id="7-axios-是什么？怎么使用？描述使用它实现登录功能的流程？"><a href="#7-axios-是什么？怎么使用？描述使用它实现登录功能的流程？" class="headerlink" title="7. axios 是什么？怎么使用？描述使用它实现登录功能的流程？"></a>7. axios 是什么？怎么使用？描述使用它实现登录功能的流程？</h3><p>答：<br>（1）axios 是请求后台资源的模块<br>（2）npm install axios -S，然后 axios.get(‘/user’, {params: {ID: 123465}},then(res=> {}).catch(err=> {}))</p><h3 id="8-axios-tp5-进阶中，调用-axios-post-‘api-user’-是进行什么操作？axios-put-‘api-user-8’-呢？"><a href="#8-axios-tp5-进阶中，调用-axios-post-‘api-user’-是进行什么操作？axios-put-‘api-user-8’-呢？" class="headerlink" title="8. axios + tp5 进阶中，调用 axios.post(‘api/user’)是进行什么操作？axios.put(‘api/user/8’)呢？"></a>8. axios + tp5 进阶中，调用 axios.post(‘api/user’)是进行什么操作？axios.put(‘api/user/8’)呢？</h3><p>答：跨域，添加用户操作，更新操作</p><h3 id="9-谈谈对vue-组件化的理解。"><a href="#9-谈谈对vue-组件化的理解。" class="headerlink" title="9. 谈谈对vue 组件化的理解。"></a>9. 谈谈对vue 组件化的理解。</h3><p>答：组件的基本构成分别为：样式结构，行为逻辑，数据。web 中的组件其实就是页面的一部分，每个组件都会提供一些对外的接口，允许使用者使用和设置参数属性，可以将不同功能的组件结合在一起，快速的构建一个符合需求的引用</p><h3 id="10-谈谈对Vue-路由的理解。"><a href="#10-谈谈对Vue-路由的理解。" class="headerlink" title="10. 谈谈对Vue 路由的理解。"></a>10. 谈谈对Vue 路由的理解。</h3><p>答：首先Vue的单页面应用是基于路由和组件的，路由用于设定访问的路径，并将路径和组件映射起来。传统的页面应用，是通过超链接来实现页面的切换和跳转。在vue-router 中是路径之间的切换，也就是组件的切换。</p><h3 id="11-谈谈你对-Vue-钩子函数的理解"><a href="#11-谈谈你对-Vue-钩子函数的理解" class="headerlink" title="11. 谈谈你对 Vue 钩子函数的理解"></a>11. 谈谈你对 Vue 钩子函数的理解</h3><p>答：vue-router 的导航钩子主要用于拦截导航，让他完成跳转或取消。</p><h3 id="12-如何让-css-只在当前页面起作用"><a href="#12-如何让-css-只在当前页面起作用" class="headerlink" title="12. 如何让 css 只在当前页面起作用"></a>12. 如何让 css 只在当前页面起作用</h3><p>答：<code>scoped</code></p><h3 id="13-created-和-mounted-的区别"><a href="#13-created-和-mounted-的区别" class="headerlink" title="13. created 和 mounted 的区别"></a>13. created 和 mounted 的区别</h3><p>答：created 是实例创建完成之后的钩子函数；el属性不可见Ϊundefinedmounted是将编译好的HTML挂在到ҳ面完成后ִ行的钩子函数，在整个生命周期中ִֻ行һ次，；el属性不可见Ϊundefinedmounted是将编译好的HTML挂在到ҳ面完成后ִ行的钩子函数，在整个生命周期中ִֻ行һ次，；el 已创建，同时 DOM 已生成。</p><h3 id="14-created-和-mounted-分别什么时候用？"><a href="#14-created-和-mounted-分别什么时候用？" class="headerlink" title="14. created 和 mounted 分别什么时候用？"></a>14. created 和 mounted 分别什么时候用？</h3><p>答：只有 ajax 数据请求时，使用 created ；如果有依赖DOM的情况，就放在 mounted中</p><h3 id="15-vue-和-angular-分别采用什么技术实现双向数据绑定？"><a href="#15-vue-和-angular-分别采用什么技术实现双向数据绑定？" class="headerlink" title="15. vue 和 angular 分别采用什么技术实现双向数据绑定？"></a>15. vue 和 angular 分别采用什么技术实现双向数据绑定？</h3><p>答：Angular 采用”脏值检测“的方式，数据发生变更后，对于所有的数据和视图的绑定关系击行一次检测，识别是否有数据发生变化，有变化进行处理，可能进一步引发其他数据变化，所以这个过程可能会重复几次，一直到没有数据发生变化后，将变更的数据发送到视图，更新页面展示。如果是手动对 ViewModel 的数据进行变更，为确保变更同步到试图，需要手动触发一次“脏值检测”。<br>VueJS 则使用 ES5 提供的 Object.defineProperty 方法，监控对数据的操作，从而可以自动触发数据同步。并且是在不同的数据上触发同步，可以精确的将变更发送给绑定的视图，而不是对所有数据都进行一次检测。</p><h3 id="16-描述下-vue-从初始化页面–修改数据–刷新页面-UI-的过程？"><a href="#16-描述下-vue-从初始化页面–修改数据–刷新页面-UI-的过程？" class="headerlink" title="16. 描述下 vue 从初始化页面–修改数据–刷新页面 UI 的过程？"></a>16. 描述下 vue 从初始化页面–修改数据–刷新页面 UI 的过程？</h3><p>答： 当 Vue 进入初始化阶段时，一方面 Vue 会遍历 data 中的属性，并用 Object.defineProperty 将它转化成 getter/setter 的形式，实现数据劫持(暂不谈 Vue3.0 的 Proxy)；另一方面，Vue 的指令编译器 Compiler 对元素节点的各个指令进行解析，初始化视图，并订阅 Watcher 来更新试图，此时 Watcher 会将自己添加到消息订阅器 Dep 中，此时初始化完毕。<br>当数据发生变化时，触发 Observer 中 setter 方法，立即调用 Dep.notify(),Dep 这个数组开始遍历所有的订阅者，并调用其 update 方法，Vue 内部再通过 diff 算法，patch 相应的更新完成对订阅者视图的改变。</p><h3 id="17-Vue中watch、methods-和-计算属性的区别是什么？"><a href="#17-Vue中watch、methods-和-计算属性的区别是什么？" class="headerlink" title="17. Vue中watch、methods 和 计算属性的区别是什么？"></a>17. Vue中watch、methods 和 计算属性的区别是什么？</h3><p>答：watch 为了监听某个响应数据的变化。计算属性是自动监听依赖值的变化，从而动态返回内容，主要目的是简化模板内的复杂运算。所以区别来源于用法，只是需要动态值，那就用计算属性；需要知道值的改变后执行业务逻辑，才用 watch。<br>methods是一个方法，它可以接受参数，而computed 不能，computed 是可以缓存的，methods 不会。computed 可以依赖其他 computed，甚至是其他组件的 data。  </p><h3 id="18-vue中怎么重置data"><a href="#18-vue中怎么重置data" class="headerlink" title="18. vue中怎么重置data"></a>18. vue中怎么重置data</h3><p>答：使用Object.assign()，vm.$data可以获取当前状态下的data，vm.$options.data可以获取到组件初始化状态下的data。<br>Object.assign(this.$data, this.$options.data())</p><h3 id="19-Vue组件中写-name-选项有什么作用？"><a href="#19-Vue组件中写-name-选项有什么作用？" class="headerlink" title="19. Vue组件中写 name 选项有什么作用？"></a>19. Vue组件中写 name 选项有什么作用？</h3><p>答：<br>项目使用 keep-alive 时，可搭配组件 name 进行缓存过滤<br>DOM 做递归组件时需要调用自身 name<br>vue-devtools 调试工具里显示的组见名称是由vue中组件name决定的</p><h3 id="20-Vuex有哪几种属性"><a href="#20-Vuex有哪几种属性" class="headerlink" title="20. Vuex有哪几种属性"></a>20. Vuex有哪几种属性</h3><p>答：有五种，分别是 State、Getter、Mutation、Action、Module</p><h3 id="21-vue-的优点是什么？"><a href="#21-vue-的优点是什么？" class="headerlink" title="21. vue 的优点是什么？"></a>21. vue 的优点是什么？</h3><p>答：低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的”View”上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。<br>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 view 重用这段视图逻辑。<br>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用 Expression Blend 可以很容易设计界面并生成 xml 代码。<br>可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。</p><h3 id="22-说出至少-4-种-vue-当中的指令和它的用法"><a href="#22-说出至少-4-种-vue-当中的指令和它的用法" class="headerlink" title="22. 说出至少 4 种 vue 当中的指令和它的用法"></a>22. 说出至少 4 种 vue 当中的指令和它的用法</h3><p>答：v-if(判断是否隐藏)、v-for(把数据遍历出来)、v-bind(绑定属性)、v-model(实现双向绑定)</p><h3 id="23-vuex-的-store-特性是什么"><a href="#23-vuex-的-store-特性是什么" class="headerlink" title="23. vuex 的 store 特性是什么"></a>23. vuex 的 store 特性是什么</h3><p>答：vuex 就是一个仓库，仓库里放了很多对象。其中 state 就是数据源存放地，对应于一般 vue 对象里面的 datastate 里面存放的数据是响应式的，vue 组件从 store 读取数据，若是 store 中的数据发生改变，依赖这相数据的组件也会发生更新它通过 mapState 把全局的 state 和 getters 映射到当前组件的 computed 计算属性</p><h3 id="24-vuex-的-getter-特性是什么"><a href="#24-vuex-的-getter-特性是什么" class="headerlink" title="24. vuex 的 getter 特性是什么"></a>24. vuex 的 getter 特性是什么</h3><p>答：getter 可以对 state 进行计算操作，它就是 store 的计算属性虽然在组件内也可以做计算属性，但是 getters 可以在多给件之间复用如果一个状态只在一个组件内使用，是可以不用 getters</p><h3 id="25-vuex-的-mutation-特性是什么"><a href="#25-vuex-的-mutation-特性是什么" class="headerlink" title="25. vuex 的 mutation 特性是什么"></a>25. vuex 的 mutation 特性是什么</h3><p>答：action 类似于 muation, 不同在于：action 提交的是 mutation,而不是直接变更状态action 可以包含任意异步操作<br>vue 中 ajax 请求代码应该写在组件的 methods 中还是 vuex 的 action 中<br>如果请求来的数据不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入 vuex 的 state 里如果被其他地方复用，请将请求放入 action 里，方便复用，并包装成 promise 返回  </p><h3 id="26-Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团"><a href="#26-Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团" class="headerlink" title="26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团"></a>26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团</h3><p>答：Vuex 中修改 state 的唯一渠道就是执行 commit(‘xx’, payload) 方法，其底层通过执行 this._withCommit(fn) 设置_committing 标志变量为 true，然后才能修改 state，修改完毕还需要还原_committing 变量。外部修改虽然能够直接修改 state，但是并没有修改_committing 标志位，所以只要 watch 一下 state，state change 时判断是否_committing 值为 true，即可判断修改的合法性。</p><h3 id="27-不用-vuex-会带来什么问题"><a href="#27-不用-vuex-会带来什么问题" class="headerlink" title="27. 不用 vuex 会带来什么问题"></a>27. 不用 vuex 会带来什么问题</h3><p>答：可维护性会下降，你要修改数据，你得维护 3 个地方<br>可读性下降，因为一个组件里的数据，你根本就看不出来是从哪里来的<br>增加耦合，大量的上传派发，会让耦合性大大的增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背</p><h3 id="28-1、v-show-与-v-if-区别"><a href="#28-1、v-show-与-v-if-区别" class="headerlink" title="28. 1、v-show 与 v-if 区别"></a>28. 1、v-show 与 v-if 区别</h3><p>答：<br>1、v-show是css切换，v-if是完整的销毁和重新创建。<br>2、使用 频繁切换时用v-show，运行时较少改变时用v-if<br>3、v-if=‘false’ v-if是条件渲染，当false的时候不会渲染</p><h3 id="29-Class-与-Style-如何动态绑定？"><a href="#29-Class-与-Style-如何动态绑定？" class="headerlink" title="29. Class 与 Style 如何动态绑定？"></a>29. Class 与 Style 如何动态绑定？</h3><p>答：<br>Class<br>1、对象方法 v-bind:class=”{‘orange’: isRipe, ‘green’: isNotRipe}”<br>2、数组方法 v-bind:class=”[class1, class2]”<<br>3、行内 v-bind:style=”{color: color, fontSize: fontSize+’px’}”<br>Stlye<br>1、对象方法 <v-bind:style=”{ color: activecolor, fontsize: fontsize + ‘px’ }”<br>2、数组方法 v-bind:style=”[styleColor,styleSize]”</v-bind:style=”{></p><h3 id="30-说说Vue中的事件修饰符。"><a href="#30-说说Vue中的事件修饰符。" class="headerlink" title="30. 说说Vue中的事件修饰符。"></a>30. 说说Vue中的事件修饰符。</h3><p>答：<br>.native:绑定一个原生的click事件<br>.prevent: 提交时间不再重载页面<br>.stop:阻止单击事件冒泡<br>.self:当事件发生在该元素本身而不是子元素的时候触发<br>.capture:事件侦听，事件发生的时候会调用<br>组合键 click.ctrl.exact 只有ctrl被按下的时候才触发</p></div></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用ProGet搭建本地私有NuGet仓库</title>
       <link href="/2019/03/03/%E7%94%A8ProGet%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89NuGet%E4%BB%93%E5%BA%93/"/>
       <url>/2019/03/03/%E7%94%A8ProGet%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89NuGet%E4%BB%93%E5%BA%93/</url>
@@ -1801,6 +1919,81 @@
             <tag> CICD </tag>
             
             <tag> GitLab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面试题汇总(一)</title>
+      <link href="/2019/02/24/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB-%E4%B8%80/"/>
+      <url>/2019/02/24/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB-%E4%B8%80/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><p>简答题</p><ol><li>谈谈你关于前端优化的经验。</li></ol><ol start="2"><li>谈谈如何使用前端缓存。</li></ol><p>3.单个请求数据量过大，如何优化？请做详细描述！</p><ol start="4"><li>css  Javascript如何压缩引入？</li></ol><p>5.谈谈css js 加载的顺序对页面性能的影响！</p><p>6.如果页面中图片太多，从性能上来说，如何提高性能？</p><ol start="7"><li>详解IIS如何调优？</li></ol><ol start="8"><li>谈谈你在之前工作中，有关于后端性能优化的经验！</li></ol><ol start="9"><li>谈谈你了解的缓存！</li></ol><p>10.请描述Redis的特点：</p><ol start="11"><li>谈谈stringbuilder和stringbuffer区别？</li></ol><p>12．谈谈ArrayList和List<>的性能区别。</p><p>13．说说   123+”字符串”  和  123.Tostring() 的区别。</p><p>14.代码中出现 字符串A.ToUpper()==字符串B  或者  字符串A .ToLower()==字符串B，你会怎么处理？</p><p>15.代码中出现 strCriteria.Trim() == “”， strCriteria为字符串类型变量；你会怎么调整？</p><p>16．说说装箱拆箱的为什么会有性能问题？</p><p>17．Object类型使用引发的性能问题，如何解决？</p><p>18.说说foreach 和 for 循环从性能角度的区别。</p><p>19．在多任务执行的时候，使用多线程，应该注意些什么？</p><ol start="20"><li>在一个网站首页，分为多块的数据，例如：有本周top10，本月top10,个人考勤等！多种数据在首页展示，如果让你来开发，除了使用ajax异步加载，还有什么其他方法能够让数据快速的加载出来？请详解开发思路！</li></ol><p>21．一个电商系统中，某一些订单的数据，可能来源于第三方接口，也可能来源于缓存，也有可能来源于数据库，如何以最高效的方式获取到数据？请详解你的思路？</p><p>22．如果有100个任务需要执行，需要快速的去完成，使用多线程如何实现？是否开启100个线程？为什么？</p><p>23说说在程序中连接数据库查询，如何避免一些性能问题？</p><p>24．谈谈在写sql语句的时候，如何提高性能？</p><ol start="25"><li>谈谈数据库的索引！使用索引需要注意些什么？</li></ol><p>26．谈谈数据库分库分表的方式。</p><p>27．谈谈如何做数据库集群？</p><p>28．谈谈数据库如何配置读写分离？</p><ol start="29"><li>谈谈你了解到的队列有哪些？</li></ol><p>30．如果一个系统出现性能瓶颈，让你来处理的话，说说你的性能优化计划。</p><p>1、使用MVC模式有什么优点？</p><p>2、请简述使用ASP.NET MVC框架访问一个页面的执行流程。</p><p>3、请说明MVC  Filter的特点、思想；框架提供的Filter有哪些？如何扩展Filter？</p><p>4、请说明MVC中Filter的集中注册方式。</p><p>5、请详解MVC路由的特点！如何扩展路由？</p><p>6、请说明MVC中global.asax.cs 文件的意义？</p><p>7、请说明在MVC视图中如果不适用using关键字，如何引用某个自定义实体类型！</p><p>8、请说明MVC中Area的作用以及在MVC中如果使用了Area以后我们需要注意什么？</p><p>9、请说明如何抓取并处理，异常Filter 抓取不到的异常？</p></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面试题汇总之数据结构与算法篇</title>
+      <link href="/2019/02/08/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AF%87/"/>
+      <url>/2019/02/08/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面试题汇总之JS篇</title>
+      <link href="/2019/02/07/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%8BJS%E7%AF%87/"/>
+      <url>/2019/02/07/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%8BJS%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h3 id="1-javascript的typeof返回哪些数据类型"><a href="#1-javascript的typeof返回哪些数据类型" class="headerlink" title="1. javascript的typeof返回哪些数据类型."></a>1. javascript的typeof返回哪些数据类型.</h3><p>答；string,boolean,number,underfined,function,object</p><h3 id="2-例举3种强制类型转换和2种隐式类型转换"><a href="#2-例举3种强制类型转换和2种隐式类型转换" class="headerlink" title="2. 例举3种强制类型转换和2种隐式类型转换?"></a>2. 例举3种强制类型转换和2种隐式类型转换?</h3><p>强制：parseInt,parseFloat,number<br>隐式：==,===</p><h3 id="3-split-join-的区别"><a href="#3-split-join-的区别" class="headerlink" title="3. split() join() 的区别"></a>3. split() join() 的区别</h3><p>split：是将字符串切割成数组的形式<br>join：是将数组转换成字符串</p><h3 id="4-数组方法pop-push-unshift-shift"><a href="#4-数组方法pop-push-unshift-shift" class="headerlink" title="4. 数组方法pop() push() unshift() shift()"></a>4. 数组方法pop() push() unshift() shift()</h3><p>push：尾部添加<br>pop：尾部删除<br>unshift：头部添加<br>shift：头部删除</p><h3 id="5-IE和标准下有哪些兼容性的写法"><a href="#5-IE和标准下有哪些兼容性的写法" class="headerlink" title="5. IE和标准下有哪些兼容性的写法"></a>5. IE和标准下有哪些兼容性的写法</h3><p>var ev = ev || window.event<br>document.documentElement.clientWidth || document.body.clientWidth<br>Var target = ev.srcElement||ev.target</p><h3 id="6-ajax请求的时候get-和post方式的区别"><a href="#6-ajax请求的时候get-和post方式的区别" class="headerlink" title="6. ajax请求的时候get 和post方式的区别"></a>6. ajax请求的时候get 和post方式的区别</h3><p>get：在url后面，而且有大小限制，是请求数据的模式<br>post：是放在虚拟载体里面，是提交数据的模式</p><h3 id="7-call和apply的区别"><a href="#7-call和apply的区别" class="headerlink" title="7. call和apply的区别"></a>7. call和apply的区别</h3><p>call：Object.call(this,obj1,obj2,obj3)<br>apply：Object.apply(this,arguments)</p><h3 id="8-ajax请求时，如何解析json数据"><a href="#8-ajax请求时，如何解析json数据" class="headerlink" title="8. ajax请求时，如何解析json数据"></a>8. ajax请求时，如何解析json数据</h3><p>使用json.parse</p><h3 id="9-事件委托是什么"><a href="#9-事件委托是什么" class="headerlink" title="9. 事件委托是什么"></a>9. 事件委托是什么</h3><p>利用事件冒泡的原理，让自己所触发的事件，让元素的父元素代替执行</p><h3 id="10-闭包是什么，有什么特性，对页面有什么影响"><a href="#10-闭包是什么，有什么特性，对页面有什么影响" class="headerlink" title="10. 闭包是什么，有什么特性，对页面有什么影响"></a>10. 闭包是什么，有什么特性，对页面有什么影响</h3><p>闭包就是能够读取其他函数内部变量的函数；可以让函数不被回收；如果过多使用闭包容易导致内存泄漏</p><h3 id="11-如何阻止事件冒泡"><a href="#11-如何阻止事件冒泡" class="headerlink" title="11. 如何阻止事件冒泡"></a>11. 如何阻止事件冒泡</h3><p>IE：ev.cancelBubble = true;<br>非IE：ev.stopPropagation();</p><h3 id="12-如何阻止默认事件"><a href="#12-如何阻止默认事件" class="headerlink" title="12. 如何阻止默认事件"></a>12. 如何阻止默认事件</h3><p>(1)return false；(2) ev.preventDefault();</p><h3 id="13-添加-删除-替换-插入到某个接点的方法"><a href="#13-添加-删除-替换-插入到某个接点的方法" class="headerlink" title="13. 添加 删除 替换 插入到某个接点的方法"></a>13. 添加 删除 替换 插入到某个接点的方法</h3><p>1）创建新节点<br>createElement() //创建一个具体的元素<br>createTextNode() //创建一个文本节点<br> 2）添加、移除、替换、插入<br>appendChild()　　//添加<br>removeChild()　　移除<br>replaceChild()　　//替换<br>insertBefore()　　//插入<br>3）查找<br>getElementsByTagName() //通过标签名称<br>getElementsByName() //通过元素的Name属性的值<br>getElementById() //通过元素Id，唯一性  </p><h3 id="14-解释jsonp的原理，以及为什么不是真正的ajax"><a href="#14-解释jsonp的原理，以及为什么不是真正的ajax" class="headerlink" title="14. 解释jsonp的原理，以及为什么不是真正的ajax"></a>14. 解释jsonp的原理，以及为什么不是真正的ajax</h3><p>jsonp是动态创建script标签，回调函数，而ajax是页面无刷新请求数据操作</p><h3 id="15-document-load-和document-ready的区别"><a href="#15-document-load-和document-ready的区别" class="headerlink" title="15. document load 和document ready的区别"></a>15. document load 和document ready的区别</h3><p>document.onload是在结构，样式，外部js和图片加载完才执行js，document.onready是dom树创建完成就执行的方法jq有这种方法，原生没有</p><h3 id="16-”-”和“-”的不同"><a href="#16-”-”和“-”的不同" class="headerlink" title="16. ”==”和“===”的不同"></a>16. ”==”和“===”的不同</h3><p>==：会自动转换类型，然后再去比较<br>===：不转换类型之间去比较</p><h3 id="17-函数声明与函数表达式的区别？"><a href="#17-函数声明与函数表达式的区别？" class="headerlink" title="17. 函数声明与函数表达式的区别？"></a>17. 函数声明与函数表达式的区别？</h3><p>在Javscript中，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非是一视同仁的，解析器会率先读取函数声明，并使其在执行任何代码之前可用（可以访问），至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解析执行</p><h3 id="18-对作用域上下文和this的理解，看下列代码："><a href="#18-对作用域上下文和this的理解，看下列代码：" class="headerlink" title="18. 对作用域上下文和this的理解，看下列代码："></a>18. 对作用域上下文和this的理解，看下列代码：</h3><pre><code>var User = { count: 1, getCount: function() {  return this.count; }};console.log(User.getCount()); // what?var func = User.getCount;console.log(func()); // what?</code></pre><p>问两处console输出什么？为什么？<br>答案:是1和undefined。<br>　　func是在window的上下文中被执行的，所以不会访问到count属性。</p><h3 id="19-看下面代码，给出输出结果。"><a href="#19-看下面代码，给出输出结果。" class="headerlink" title="19. 看下面代码，给出输出结果。"></a>19. 看下面代码，给出输出结果。</h3><pre><code>for(var i = 1; i <= 3; i++){  //建议使用let 可正常输出i的值  setTimeout(function(){      console.log(i);     },0); };  </code></pre><p>答案：4 4 4。<br>原因：Javascript事件处理器在线程空闲之前不会运行。</p><h3 id="20-当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做"><a href="#20-当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做" class="headerlink" title="20. 当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做?"></a>20. 当一个DOM节点被点击时候，我们希望能够执行一个函数，应该怎么做?</h3><pre><code>box.onlick= function(){}box.addEventListener("click",function(){},false);<button onclick="xxx()"></button></code></pre><h3 id="23-判断字符串以字母开头，后面可以是数字，下划线，字母，长度为6-30"><a href="#23-判断字符串以字母开头，后面可以是数字，下划线，字母，长度为6-30" class="headerlink" title="23. 判断字符串以字母开头，后面可以是数字，下划线，字母，长度为6-30"></a>23. 判断字符串以字母开头，后面可以是数字，下划线，字母，长度为6-30</h3><pre><code>var reg=/^[a-zA-Z]\w{5,29}$/;</code></pre><h3 id="24-回答以下代码，alert的值分别是多少？"><a href="#24-回答以下代码，alert的值分别是多少？" class="headerlink" title="24. 回答以下代码，alert的值分别是多少？"></a>24. 回答以下代码，alert的值分别是多少？</h3><pre><code><script>     var a = 100;       function test(){          console.log(a);       a = 10;  //去掉了var 就变成定义了全局变量了        console.log(a);  }      test();    console.log(a);</script></code></pre><p>正确答案是： 100， 10， 10</p><h3 id="25-javaScript的2种变量范围有什么不同？"><a href="#25-javaScript的2种变量范围有什么不同？" class="headerlink" title="25. javaScript的2种变量范围有什么不同？"></a>25. javaScript的2种变量范围有什么不同？</h3><p>全局变量：当前页面内有效<br>局部变量：函数方法内有效</p><h3 id="26-null和undefined的区别？"><a href="#26-null和undefined的区别？" class="headerlink" title="26. null和undefined的区别？"></a>26. null和undefined的区别？</h3><p>null是一个表示”无”的对象，转为数值时为0；undefined是一个表示”无”的原始值，转为数值时为NaN。<br>当声明的变量还未被初始化时，变量的默认值为undefined。 null用来表示尚未存在的对象<br>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：<br>（1）变量被声明了，但没有赋值时，就等于undefined。<br>（2）调用函数时，应该提供的参数没有提供，该参数等于undefined。<br>（3）对象没有赋值的属性，该属性的值为undefined。<br>（4）函数没有返回值时，默认返回undefined。<br>null表示”没有对象”，即该处不应该有值。典型用法是：<br>（1） 作为函数的参数，表示该函数的参数不是对象。<br>（2） 作为对象原型链的终点。  </p><h3 id="27-new操作符具体干了什么呢"><a href="#27-new操作符具体干了什么呢" class="headerlink" title="27. new操作符具体干了什么呢?"></a>27. new操作符具体干了什么呢?</h3><p>1、创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。<br>2、属性和方法被加入到 this 引用的对象中。<br>3、新创建的对象由 this 所引用，并且最后隐式的返回 this 。</p><h3 id="28-js延迟加载的方式有哪些？"><a href="#28-js延迟加载的方式有哪些？" class="headerlink" title="28. js延迟加载的方式有哪些？"></a>28. js延迟加载的方式有哪些？</h3><p>defer和async、动态创建DOM方式（创建script，插入到DOM中，加载完毕后callBack）、按需异步载入js</p><h3 id="29-Flash、Ajax各自的优缺点，在使用中如何取舍？"><a href="#29-Flash、Ajax各自的优缺点，在使用中如何取舍？" class="headerlink" title="29. Flash、Ajax各自的优缺点，在使用中如何取舍？"></a>29. Flash、Ajax各自的优缺点，在使用中如何取舍？</h3><p>Flash：适合处理多媒体，矢量图，访问机器；对css，处理文本上不足，不容易被搜索<br>Ajax：对css，文本支持很好，易搜索；多媒体，矢量图形，机器访问不足<br>共同点：与服务器得无刷新传递消息，用户离线和在线状态，操作dom</p><h3 id="30-写一个获取非行间样式的函数"><a href="#30-写一个获取非行间样式的函数" class="headerlink" title="30. 写一个获取非行间样式的函数"></a>30. 写一个获取非行间样式的函数</h3><pre><code>function getStyle(obj,attr) {    if(obj.currentStyle) {        return obj.currentStyle[attr];    }else{        getComputedStyle(obi,false)[attr]     }}</code></pre><h3 id="31-希望获取到页面中所有的checkbox怎么做？"><a href="#31-希望获取到页面中所有的checkbox怎么做？" class="headerlink" title="31. 希望获取到页面中所有的checkbox怎么做？"></a>31. 希望获取到页面中所有的checkbox怎么做？</h3><p>var inputs = document.getElementsByTagName(“input”);//获取所有的input标签对象  </p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var checkboxArray = [];//初始化空数组，用来存放checkbox对象。</span><br><span class="line"></span><br><span class="line">for(var i=0;i<inputs.length;i++){< span><br><span class="line">  var obj = inputs[i];</span><br><span class="line">  if(obj.type=='checkbox'){</span><br><span class="line">     checkboxArray.push(obj);</span><br><span class="line">  }</span><br><span class="line">}</span><br></inputs.length;i++){<></span></pre></td></tr></tbody></table></figure></div><h3 id="32-写一个function，清除字符串前后的空格。（兼容所有浏览器）"><a href="#32-写一个function，清除字符串前后的空格。（兼容所有浏览器）" class="headerlink" title="32. 写一个function，清除字符串前后的空格。（兼容所有浏览器）"></a>32. 写一个function，清除字符串前后的空格。（兼容所有浏览器）</h3><pre><code>String.prototype.trim= function(){    return this.replace(/^\s+/,"").replace(/\s+$/,"");}</code></pre><h3 id="33-javascript语言特性中，有很多方面和我们接触的其他编程语言不太一样-请举例"><a href="#33-javascript语言特性中，有很多方面和我们接触的其他编程语言不太一样-请举例" class="headerlink" title="33. javascript语言特性中，有很多方面和我们接触的其他编程语言不太一样,请举例"></a>33. javascript语言特性中，有很多方面和我们接触的其他编程语言不太一样,请举例</h3><p>javascript语言实现继承机制的核心就是<br>1 (原型)，而不是Java语言那样的类式继承。Javascript解析引擎在读取一个Object的属性的值时，会沿着<br>2 (原型链)向上寻找，如果最终没有找到，则该属性值为<br>3 undefined；如果最终找到该属性的值，则返回结果。与这个过程不同的是，当javascript解析引擎执行“给一个Object的某个属性赋值”的时候，如果当前Object存在该属性，则改写该属性的值，如果当前的Object本身并不存在该属性，则赋值该属性的值。</p><h3 id="34-Cookie在客户机上是如何存储的"><a href="#34-Cookie在客户机上是如何存储的" class="headerlink" title="34. Cookie在客户机上是如何存储的"></a>34. Cookie在客户机上是如何存储的</h3><p>Cookies就是服务器暂存放在你的电脑里的文本文件，好让服务器用来辨认你的计算机。当你在浏览网站的时候，Web服务器会先送一小小资料放在你的计算机上，Cookies 会帮你在网站上所打的文字或是一些选择都记录下来。当下次你再访问同一个网站，Web服务器会先看看有没有它上次留下的Cookies资料，有的话，就会依据Cookie里的内容来判断使用者，送出特定的网页内容给你。</p><h3 id="35-如何获取javascript三个数中的最大值和最小值？"><a href="#35-如何获取javascript三个数中的最大值和最小值？" class="headerlink" title="35. 如何获取javascript三个数中的最大值和最小值？"></a>35. 如何获取javascript三个数中的最大值和最小值？</h3><p>Math.max(a,b,c);//最大值<br>Math.min(a,b,c)//最小值</p><h3 id="36-javascript是面向对象的，怎么体现javascript的继承关系？"><a href="#36-javascript是面向对象的，怎么体现javascript的继承关系？" class="headerlink" title="36. javascript是面向对象的，怎么体现javascript的继承关系？"></a>36. javascript是面向对象的，怎么体现javascript的继承关系？</h3><p>使用prototype原型来实现。  </p><h3 id="37-form中的input可以设置为readonly和disable，请问2者有什么区别？"><a href="#37-form中的input可以设置为readonly和disable，请问2者有什么区别？" class="headerlink" title="37. .form中的input可以设置为readonly和disable，请问2者有什么区别？"></a>37. .form中的input可以设置为readonly和disable，请问2者有什么区别？</h3><p>readonly不可编辑，但可以选择和复制；值可以传递到后台<br>disabled不能编辑，不能复制，不能选择；值不可以传递到后台</p><h3 id="38-列举javaScript的3种主要数据类型，2种复合数据类型和2种特殊数据类型。"><a href="#38-列举javaScript的3种主要数据类型，2种复合数据类型和2种特殊数据类型。" class="headerlink" title="38. 列举javaScript的3种主要数据类型，2种复合数据类型和2种特殊数据类型。"></a>38. 列举javaScript的3种主要数据类型，2种复合数据类型和2种特殊数据类型。</h3><p>主要数据类型：string, boolean, number<br>复合数据类型：function, object<br>特殊类型：undefined，null</p><h3 id="39-程序中捕获异常的方法？"><a href="#39-程序中捕获异常的方法？" class="headerlink" title="39. 程序中捕获异常的方法？"></a>39. 程序中捕获异常的方法？</h3><pre><code>try{}catch(e){}finally{}</code></pre><h3 id="40-Ajax原理"><a href="#40-Ajax原理" class="headerlink" title="40. Ajax原理"></a>40. Ajax原理</h3><p>(1)创建对象<br>    var xhr = new XMLHttpRequest();</p><p>(2)打开请求<br>    xhr.open(‘GET’, ‘example.txt’, true);</p><p>(3)发送请求<br>    xhr.send(); 发送请求到服务器</p><p>(4)接收响应<br>    xhr.onreadystatechange =function(){}</p><p>(1)当readystate值从一个值变为另一个值时，都会触发readystatechange事件。<br>(2)当readystate==4时，表示已经接收到全部响应数据。<br>(3)当status ==200时，表示服务器成功返回页面和数据。<br>(4)如果(2)和(3)内容同时满足，则可以通过xhr.responseText，获得服务器返回的内容。  </p></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
             
         </tags>
       
