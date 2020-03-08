@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>rabbitmq和redis用作消息队列的区别</title>
+      <link href="/2020/03/08/rabbitmq%E5%92%8Credis%E7%94%A8%E4%BD%9C%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+      <url>/2020/03/08/rabbitmq%E5%92%8Credis%E7%94%A8%E4%BD%9C%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="将redis发布订阅模式用做消息队列和rabbitmq的区别："><a href="#将redis发布订阅模式用做消息队列和rabbitmq的区别：" class="headerlink" title="将redis发布订阅模式用做消息队列和rabbitmq的区别："></a>将redis发布订阅模式用做消息队列和rabbitmq的区别：</h2><h3 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h3><p>redis ：没有相应的机制保证消息的可靠消费，如果发布者发布一条消息，而没有对应的订阅者的话，这条消息将丢失，不会存在内存中；<br>rabbitmq：具有消息消费确认机制，如果发布一条消息，还没有消费者消费该队列，那么这条消息将一直存放在队列中，直到有消费者消费了该条消息，以此可以保证消息的可靠消费；  </p><p><a href="/2020/03/08/rabbitmq%E5%92%8Credis%E7%94%A8%E4%BD%9C%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB/redis.png" data-fancybox="group" data-caption="rabbitmq和redis用作消息队列的区别" class="fancybox"><img alt="rabbitmq和redis用作消息队列的区别" title="rabbitmq和redis用作消息队列的区别" data-src="/2020/03/08/rabbitmq%E5%92%8Credis%E7%94%A8%E4%BD%9C%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB/redis.png" class="lazyload"></a></p><h3 id="实时性"><a href="#实时性" class="headerlink" title="实时性"></a>实时性</h3><p>redis:实时性高，redis作为高效的缓存服务器，所有数据都存在在服务器中，所以它具有更高的实时性</p><h3 id="消费者负载均衡"><a href="#消费者负载均衡" class="headerlink" title="消费者负载均衡"></a>消费者负载均衡</h3><p>rabbitmq队列可以被多个消费者同时监控消费，但是每一条消息只能被消费一次，由于rabbitmq的消费确认机制，因此它能够根据消费者的消费能力而调整它的负载；<br>redis发布订阅模式，一个队列可以被多个消费者同时订阅，当有消息到达时，会将该消息依次发送给每个订阅者；</p><h3 id="持久性"><a href="#持久性" class="headerlink" title="持久性"></a>持久性</h3><p>redis：redis的持久化是针对于整个redis缓存的内容，它有RDB和AOF两种持久化方式（redis持久化方式，后续更新），可以将整个redis实例持久化到磁盘，以此来做数据备份，防止异常情况下导致数据丢失。<br>rabbitmq：队列，消息都可以选择性持久化，持久化粒度更小，更灵活；</p><h3 id="队列监控"><a href="#队列监控" class="headerlink" title="队列监控"></a>队列监控</h3><p>rabbitmq实现了后台监控平台，可以在该平台上看到所有创建的队列的详细情况，良好的后台管理平台可以方面我们更好的使用；<br>redis没有所谓的监控平台。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>redis： 轻量级，低延迟，高并发，低可靠性；<br>rabbitmq：重量级，高可靠，异步，不保证实时；<br>rabbitmq是一个专门的AMQP协议队列，他的优势就在于提供可靠的队列服务，并且可做到异步，而redis主要是用于缓存的，redis的发布订阅模块，可用于实现及时性，且可靠性低的功能。</p><blockquote><p>原文地址：<a href="https://www.cnblogs.com/liuqingzheng/p/10009232.html" target="_blank" rel="noopener">《rabbitmq和redis用作消息队列的区别》</a></p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Nosql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Nosql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>跨域问题的多种解决方案</title>
       <link href="/2020/03/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
       <url>/2020/03/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%9A%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
@@ -45,9 +70,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
             <tag> NetCore </tag>
             
@@ -76,9 +101,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
             <tag> NetCore </tag>
             
@@ -107,9 +132,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
             <tag> NetCore </tag>
             
@@ -178,7 +203,7 @@
       <link href="/2020/03/02/DotnetCore%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/"/>
       <url>/2020/03/02/DotnetCore%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/</url>
       
-        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="NetCore-实现多语言"><a href="#NetCore-实现多语言" class="headerlink" title=".NetCore 实现多语言"></a>.NetCore 实现多语言</h2><p>ASP.NET Core中提供了一些本地化服务和中间件，可将网站本地化为不同的语言文化。</p><p>ASP.NET Core中我们可以使用Microsoft.AspNetCore.Localization库来实现本地化</p><h3 id="创建程序"><a href="#创建程序" class="headerlink" title="创建程序"></a>创建程序</h3><p>创建Web应用程序（模型视图控制器）</p><h3 id="配置Startup类"><a href="#配置Startup类" class="headerlink" title="配置Startup类"></a>配置Startup类</h3><p>在Startup类的 ConfigureServices方法中使用services.AddLocalization添加本地化服务</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//添加资源文件夹</span><br><span class="line">services.AddLocalization(o =></span><br><span class="line">   {</span><br><span class="line">       o.ResourcesPath = "Resources";</span><br><span class="line">   });</span><br><span class="line"></span><br><span class="line">//View中使用本地化</span><br><span class="line">services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);</span><br></pre></td></tr></tbody></table></figure></div><p>在Startup类的 Configure方法中添加本地化中间件    </p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//添加语言包</span><br><span class="line">IList<cultureinfo> supportedCultures = new List<cultureinfo></cultureinfo></cultureinfo></span><br><span class="line">{</span><br><span class="line">new CultureInfo("en-US"),</span><br><span class="line">new CultureInfo("zh-CN"),</span><br><span class="line">};</span><br><span class="line">app.UseRequestLocalization(new RequestLocalizationOptions</span><br><span class="line">{</span><br><span class="line">DefaultRequestCulture = new RequestCulture("en-US"),</span><br><span class="line">SupportedCultures = supportedCultures,</span><br><span class="line">SupportedUICultures = supportedCultures</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure></div><ul><li>app.UseRequestLocalization必须放置app.UseMvc之前</li><li>DefaultRequestCulture参数指定了默认的语言文化，即用户不指定任何文化时的默认语言文化</li><li>SupportedCultures和SupportedUICultures是指定当前应用支持的所有语言文化</li></ul><h3 id="添加资源文件"><a href="#添加资源文件" class="headerlink" title="添加资源文件"></a>添加资源文件</h3><p>控制器注入服务：<code>IStringLocalizer<homecontroller></homecontroller></code></p><p>调用资源：<code>_localizer["Hello"]</code></p><h3 id="默认的语言文化提供器"><a href="#默认的语言文化提供器" class="headerlink" title="默认的语言文化提供器"></a>默认的语言文化提供器</h3><p>ASP.NET Core的本地化中间件默认支持3种语言文化提供器</p><ul><li>URL中的查询字符串<ul><li>?culture=zh-CN&ui-culture=zh-CN</li><li>?culture=zh-CN</li><li>?ui-culture=zh-CN</li></ul></li><li>Cookie</li><li>请求头</li></ul><blockquote><p>代码详见：</p></blockquote></body></html>]]></content>
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="NetCore-实现多语言"><a href="#NetCore-实现多语言" class="headerlink" title=".NetCore 实现多语言"></a>.NetCore 实现多语言</h2><p>ASP.NET Core中提供了一些本地化服务和中间件，可将网站本地化为不同的语言文化。</p><p>ASP.NET Core中我们可以使用Microsoft.AspNetCore.Localization库来实现本地化</p><h3 id="创建程序"><a href="#创建程序" class="headerlink" title="创建程序"></a>创建程序</h3><p>创建Web应用程序（模型视图控制器）</p><h3 id="配置Startup类"><a href="#配置Startup类" class="headerlink" title="配置Startup类"></a>配置Startup类</h3><p>在Startup类的 ConfigureServices方法中使用services.AddLocalization添加本地化服务</p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//添加资源文件夹</span><br><span class="line">services.AddLocalization(o =></span><br><span class="line">   {</span><br><span class="line">       o.ResourcesPath = "Resources";</span><br><span class="line">   });</span><br><span class="line"></span><br><span class="line">//View中使用本地化</span><br><span class="line">services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);</span><br></pre></td></tr></tbody></table></figure></div><p>在Startup类的 Configure方法中添加本地化中间件    </p><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//添加语言包</span><br><span class="line">IList<cultureinfo> supportedCultures = new List<cultureinfo></cultureinfo></cultureinfo></span><br><span class="line">{</span><br><span class="line">new CultureInfo("en-US"),</span><br><span class="line">new CultureInfo("zh-CN"),</span><br><span class="line">};</span><br><span class="line">app.UseRequestLocalization(new RequestLocalizationOptions</span><br><span class="line">{</span><br><span class="line">DefaultRequestCulture = new RequestCulture("en-US"),</span><br><span class="line">SupportedCultures = supportedCultures,</span><br><span class="line">SupportedUICultures = supportedCultures</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure></div><ul><li>app.UseRequestLocalization必须放置app.UseMvc之前</li><li>DefaultRequestCulture参数指定了默认的语言文化，即用户不指定任何文化时的默认语言文化</li><li>SupportedCultures和SupportedUICultures是指定当前应用支持的所有语言文化</li></ul><h3 id="添加资源文件"><a href="#添加资源文件" class="headerlink" title="添加资源文件"></a>添加资源文件</h3><p>控制器注入服务：<code>IStringLocalizer<homecontroller></homecontroller></code></p><p>调用资源：<code>_localizer["Hello"]</code></p><h3 id="默认的语言文化提供器"><a href="#默认的语言文化提供器" class="headerlink" title="默认的语言文化提供器"></a>默认的语言文化提供器</h3><p>ASP.NET Core的本地化中间件默认支持3种语言文化提供器</p><ul><li>URL中的查询字符串<ul><li>?culture=zh-CN&ui-culture=zh-CN</li><li>?culture=zh-CN</li><li>?ui-culture=zh-CN</li></ul></li><li>Cookie</li><li>请求头</li></ul><blockquote><p>代码详见：<a href="https://github.com/HJY-dev/LocalizationSample" target="_blank" rel="noopener">https://github.com/HJY-dev/LocalizationSample</a></p></blockquote></body></html>]]></content>
       
       
       <categories>
@@ -616,9 +641,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
             <tag> NetCore </tag>
             
@@ -647,9 +672,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
             <tag> NetCore </tag>
             
@@ -678,9 +703,9 @@
       
         <tags>
             
-            <tag> vue </tag>
-            
             <tag> webpack </tag>
+            
+            <tag> vue </tag>
             
         </tags>
       
@@ -1017,9 +1042,9 @@
       
         <tags>
             
-            <tag> DaoCloud </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> DaoCloud </tag>
             
             <tag> CICD </tag>
             
@@ -1046,9 +1071,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1073,9 +1098,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1100,9 +1125,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1127,9 +1152,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1154,9 +1179,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1181,9 +1206,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1208,9 +1233,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1827,7 +1852,7 @@
       <link href="/2019/03/07/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%8BVue%E7%AF%87/"/>
       <url>/2019/03/07/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB%E4%B9%8BVue%E7%AF%87/</url>
       
-        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h3 id="1-active-class-是哪个组件的属性？嵌套路由怎么定义？"><a href="#1-active-class-是哪个组件的属性？嵌套路由怎么定义？" class="headerlink" title="1. active-class 是哪个组件的属性？嵌套路由怎么定义？"></a>1. active-class 是哪个组件的属性？嵌套路由怎么定义？</h3><p>答：vue-router 模块的 router-link 组件。</p><h3 id="2-怎么定义-vue-router-的动态路由？怎么获取传过来的动态参数？"><a href="#2-怎么定义-vue-router-的动态路由？怎么获取传过来的动态参数？" class="headerlink" title="2. 怎么定义 vue-router 的动态路由？怎么获取传过来的动态参数？"></a>2. 怎么定义 vue-router 的动态路由？怎么获取传过来的动态参数？</h3><p>答：在路由的 path 属性上加上 【/:id】。获取：router.params.id。</p><h3 id="3-vue-router-有哪几种导航钩子？"><a href="#3-vue-router-有哪几种导航钩子？" class="headerlink" title="3. vue-router 有哪几种导航钩子？"></a>3. vue-router 有哪几种导航钩子？</h3><p>答：<br>（1）全局导航钩子：beforeEach()、afterEach()<br>（2）路由独享组件：beforeEnter()<br>（3）组件内的钩子：beforeRouteEnter()、beforeRouteUpdate()、beforeRouteLeave()</p><h3 id="4-scss-是什么？使用步骤是？有那几大特性？"><a href="#4-scss-是什么？使用步骤是？有那几大特性？" class="headerlink" title="4. scss 是什么？使用步骤是？有那几大特性？"></a>4. scss 是什么？使用步骤是？有那几大特性？</h3><p>答:<br>（1）预处理 css，把 css 当成函数编写，定义变量，嵌套<br>（2）npm 下三个 loader （sass-loader、css-loader、node-sass）;<br>在 build 文件夹下 webpack.base.conf.js 文件，在module 中添加规则 { test: /.sass变量名称=值）；</p><h3 id="5-mint-ui是什么？怎么使用？至少说出三个组件的使用方法？"><a href="#5-mint-ui是什么？怎么使用？至少说出三个组件的使用方法？" class="headerlink" title="5. mint-ui是什么？怎么使用？至少说出三个组件的使用方法？"></a>5. mint-ui是什么？怎么使用？至少说出三个组件的使用方法？</h3><p>答：<br>（1）基于 vue 的前端组件库。npm 安装，然后 import 样式和js，Vue.use(mintUI)全局引入。<br>（2）在单个组件内部引入：import { Toast } from ‘mint-ui’<br>（3）组件1：Toast(‘登录成功’)；<br>组件2：mint-header<br>组件3：mint-swiper</p><h3 id="6-v-model-是什么？怎么使用？vue中标签怎么绑定事件？"><a href="#6-v-model-是什么？怎么使用？vue中标签怎么绑定事件？" class="headerlink" title="6. v-model 是什么？怎么使用？vue中标签怎么绑定事件？"></a>6. v-model 是什么？怎么使用？vue中标签怎么绑定事件？</h3><p>答：是可以实现双向数据绑定的指令（v-class、v-for 、v-if、v-show、v-on）</p><div @click="someFunc"><h3 id="7-axios-是什么？怎么使用？描述使用它实现登录功能的流程？"><a href="#7-axios-是什么？怎么使用？描述使用它实现登录功能的流程？" class="headerlink" title="7. axios 是什么？怎么使用？描述使用它实现登录功能的流程？"></a>7. axios 是什么？怎么使用？描述使用它实现登录功能的流程？</h3><p>答：<br>（1）axios 是请求后台资源的模块<br>（2）npm install axios -S，然后 axios.get(‘/user’, {params: {ID: 123465}},then(res=> {}).catch(err=> {}))</p><h3 id="8-axios-tp5-进阶中，调用-axios-post-‘api-user’-是进行什么操作？axios-put-‘api-user-8’-呢？"><a href="#8-axios-tp5-进阶中，调用-axios-post-‘api-user’-是进行什么操作？axios-put-‘api-user-8’-呢？" class="headerlink" title="8. axios + tp5 进阶中，调用 axios.post(‘api/user’)是进行什么操作？axios.put(‘api/user/8’)呢？"></a>8. axios + tp5 进阶中，调用 axios.post(‘api/user’)是进行什么操作？axios.put(‘api/user/8’)呢？</h3><p>答：跨域，添加用户操作，更新操作</p><h3 id="9-谈谈对vue-组件化的理解。"><a href="#9-谈谈对vue-组件化的理解。" class="headerlink" title="9. 谈谈对vue 组件化的理解。"></a>9. 谈谈对vue 组件化的理解。</h3><p>答：组件的基本构成分别为：样式结构，行为逻辑，数据。web 中的组件其实就是页面的一部分，每个组件都会提供一些对外的接口，允许使用者使用和设置参数属性，可以将不同功能的组件结合在一起，快速的构建一个符合需求的引用</p><h3 id="10-谈谈对Vue-路由的理解。"><a href="#10-谈谈对Vue-路由的理解。" class="headerlink" title="10. 谈谈对Vue 路由的理解。"></a>10. 谈谈对Vue 路由的理解。</h3><p>答：首先Vue的单页面应用是基于路由和组件的，路由用于设定访问的路径，并将路径和组件映射起来。传统的页面应用，是通过超链接来实现页面的切换和跳转。在vue-router 中是路径之间的切换，也就是组件的切换。</p><h3 id="11-谈谈你对-Vue-钩子函数的理解"><a href="#11-谈谈你对-Vue-钩子函数的理解" class="headerlink" title="11. 谈谈你对 Vue 钩子函数的理解"></a>11. 谈谈你对 Vue 钩子函数的理解</h3><p>答：vue-router 的导航钩子主要用于拦截导航，让他完成跳转或取消。</p><h3 id="12-如何让-css-只在当前页面起作用"><a href="#12-如何让-css-只在当前页面起作用" class="headerlink" title="12. 如何让 css 只在当前页面起作用"></a>12. 如何让 css 只在当前页面起作用</h3><p>答：<code>scoped</code></p><h3 id="13-created-和-mounted-的区别"><a href="#13-created-和-mounted-的区别" class="headerlink" title="13. created 和 mounted 的区别"></a>13. created 和 mounted 的区别</h3><p>答：created 是实例创建完成之后的钩子函数；el属性不可见Ϊundefinedmounted是将编译好的HTML挂在到ҳ面完成后ִ行的钩子函数，在整个生命周期中ִֻ行һ次，；el属性不可见Ϊundefinedmounted是将编译好的HTML挂在到ҳ面完成后ִ行的钩子函数，在整个生命周期中ִֻ行һ次，；el 已创建，同时 DOM 已生成。</p><h3 id="14-created-和-mounted-分别什么时候用？"><a href="#14-created-和-mounted-分别什么时候用？" class="headerlink" title="14. created 和 mounted 分别什么时候用？"></a>14. created 和 mounted 分别什么时候用？</h3><p>答：只有 ajax 数据请求时，使用 created ；如果有依赖DOM的情况，就放在 mounted中</p><h3 id="15-vue-和-angular-分别采用什么技术实现双向数据绑定？"><a href="#15-vue-和-angular-分别采用什么技术实现双向数据绑定？" class="headerlink" title="15. vue 和 angular 分别采用什么技术实现双向数据绑定？"></a>15. vue 和 angular 分别采用什么技术实现双向数据绑定？</h3><p>答：Angular 采用”脏值检测“的方式，数据发生变更后，对于所有的数据和视图的绑定关系击行一次检测，识别是否有数据发生变化，有变化进行处理，可能进一步引发其他数据变化，所以这个过程可能会重复几次，一直到没有数据发生变化后，将变更的数据发送到视图，更新页面展示。如果是手动对 ViewModel 的数据进行变更，为确保变更同步到试图，需要手动触发一次“脏值检测”。<br>VueJS 则使用 ES5 提供的 Object.defineProperty 方法，监控对数据的操作，从而可以自动触发数据同步。并且是在不同的数据上触发同步，可以精确的将变更发送给绑定的视图，而不是对所有数据都进行一次检测。</p><h3 id="16-描述下-vue-从初始化页面–修改数据–刷新页面-UI-的过程？"><a href="#16-描述下-vue-从初始化页面–修改数据–刷新页面-UI-的过程？" class="headerlink" title="16. 描述下 vue 从初始化页面–修改数据–刷新页面 UI 的过程？"></a>16. 描述下 vue 从初始化页面–修改数据–刷新页面 UI 的过程？</h3><p>答： 当 Vue 进入初始化阶段时，一方面 Vue 会遍历 data 中的属性，并用 Object.defineProperty 将它转化成 getter/setter 的形式，实现数据劫持(暂不谈 Vue3.0 的 Proxy)；另一方面，Vue 的指令编译器 Compiler 对元素节点的各个指令进行解析，初始化视图，并订阅 Watcher 来更新试图，此时 Watcher 会将自己添加到消息订阅器 Dep 中，此时初始化完毕。<br>当数据发生变化时，触发 Observer 中 setter 方法，立即调用 Dep.notify(),Dep 这个数组开始遍历所有的订阅者，并调用其 update 方法，Vue 内部再通过 diff 算法，patch 相应的更新完成对订阅者视图的改变。</p><h3 id="17-Vue中watch、methods-和-计算属性的区别是什么？"><a href="#17-Vue中watch、methods-和-计算属性的区别是什么？" class="headerlink" title="17. Vue中watch、methods 和 计算属性的区别是什么？"></a>17. Vue中watch、methods 和 计算属性的区别是什么？</h3><p>答：watch 为了监听某个响应数据的变化。计算属性是自动监听依赖值的变化，从而动态返回内容，主要目的是简化模板内的复杂运算。所以区别来源于用法，只是需要动态值，那就用计算属性；需要知道值的改变后执行业务逻辑，才用 watch。<br>methods是一个方法，它可以接受参数，而computed 不能，computed 是可以缓存的，methods 不会。computed 可以依赖其他 computed，甚至是其他组件的 data。  </p><h3 id="18-vue中怎么重置data"><a href="#18-vue中怎么重置data" class="headerlink" title="18. vue中怎么重置data"></a>18. vue中怎么重置data</h3><p>答：使用Object.assign()，vm.$data可以获取当前状态下的data，vm.$options.data可以获取到组件初始化状态下的data。<br>Object.assign(this.$data, this.$options.data())</p><h3 id="19-Vue组件中写-name-选项有什么作用？"><a href="#19-Vue组件中写-name-选项有什么作用？" class="headerlink" title="19. Vue组件中写 name 选项有什么作用？"></a>19. Vue组件中写 name 选项有什么作用？</h3><p>答：<br>项目使用 keep-alive 时，可搭配组件 name 进行缓存过滤<br>DOM 做递归组件时需要调用自身 name<br>vue-devtools 调试工具里显示的组见名称是由vue中组件name决定的</p><h3 id="20-Vuex有哪几种属性"><a href="#20-Vuex有哪几种属性" class="headerlink" title="20. Vuex有哪几种属性"></a>20. Vuex有哪几种属性</h3><p>答：有五种，分别是 State、Getter、Mutation、Action、Module</p><h3 id="21-vue-的优点是什么？"><a href="#21-vue-的优点是什么？" class="headerlink" title="21. vue 的优点是什么？"></a>21. vue 的优点是什么？</h3><p>答：低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的”View”上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。<br>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 view 重用这段视图逻辑。<br>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用 Expression Blend 可以很容易设计界面并生成 xml 代码。<br>可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。</p><h3 id="22-说出至少-4-种-vue-当中的指令和它的用法"><a href="#22-说出至少-4-种-vue-当中的指令和它的用法" class="headerlink" title="22. 说出至少 4 种 vue 当中的指令和它的用法"></a>22. 说出至少 4 种 vue 当中的指令和它的用法</h3><p>答：v-if(判断是否隐藏)、v-for(把数据遍历出来)、v-bind(绑定属性)、v-model(实现双向绑定)</p><h3 id="23-vuex-的-store-特性是什么"><a href="#23-vuex-的-store-特性是什么" class="headerlink" title="23. vuex 的 store 特性是什么"></a>23. vuex 的 store 特性是什么</h3><p>答：vuex 就是一个仓库，仓库里放了很多对象。其中 state 就是数据源存放地，对应于一般 vue 对象里面的 datastate 里面存放的数据是响应式的，vue 组件从 store 读取数据，若是 store 中的数据发生改变，依赖这相数据的组件也会发生更新它通过 mapState 把全局的 state 和 getters 映射到当前组件的 computed 计算属性</p><h3 id="24-vuex-的-getter-特性是什么"><a href="#24-vuex-的-getter-特性是什么" class="headerlink" title="24. vuex 的 getter 特性是什么"></a>24. vuex 的 getter 特性是什么</h3><p>答：getter 可以对 state 进行计算操作，它就是 store 的计算属性虽然在组件内也可以做计算属性，但是 getters 可以在多给件之间复用如果一个状态只在一个组件内使用，是可以不用 getters</p><h3 id="25-vuex-的-mutation-特性是什么"><a href="#25-vuex-的-mutation-特性是什么" class="headerlink" title="25. vuex 的 mutation 特性是什么"></a>25. vuex 的 mutation 特性是什么</h3><p>答：action 类似于 muation, 不同在于：action 提交的是 mutation,而不是直接变更状态action 可以包含任意异步操作<br>vue 中 ajax 请求代码应该写在组件的 methods 中还是 vuex 的 action 中<br>如果请求来的数据不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入 vuex 的 state 里如果被其他地方复用，请将请求放入 action 里，方便复用，并包装成 promise 返回  </p><h3 id="26-Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团"><a href="#26-Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团" class="headerlink" title="26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团"></a>26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团</h3><p>答：Vuex 中修改 state 的唯一渠道就是执行 commit(‘xx’, payload) 方法，其底层通过执行 this._withCommit(fn) 设置_committing 标志变量为 true，然后才能修改 state，修改完毕还需要还原_committing 变量。外部修改虽然能够直接修改 state，但是并没有修改_committing 标志位，所以只要 watch 一下 state，state change 时判断是否_committing 值为 true，即可判断修改的合法性。</p><h3 id="27-不用-vuex-会带来什么问题"><a href="#27-不用-vuex-会带来什么问题" class="headerlink" title="27. 不用 vuex 会带来什么问题"></a>27. 不用 vuex 会带来什么问题</h3><p>答：可维护性会下降，你要修改数据，你得维护 3 个地方<br>可读性下降，因为一个组件里的数据，你根本就看不出来是从哪里来的<br>增加耦合，大量的上传派发，会让耦合性大大的增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背</p><h3 id="28-1、v-show-与-v-if-区别"><a href="#28-1、v-show-与-v-if-区别" class="headerlink" title="28. 1、v-show 与 v-if 区别"></a>28. 1、v-show 与 v-if 区别</h3><p>答：<br>1、v-show是css切换，v-if是完整的销毁和重新创建。<br>2、使用 频繁切换时用v-show，运行时较少改变时用v-if<br>3、v-if=‘false’ v-if是条件渲染，当false的时候不会渲染</p><h3 id="29-Class-与-Style-如何动态绑定？"><a href="#29-Class-与-Style-如何动态绑定？" class="headerlink" title="29. Class 与 Style 如何动态绑定？"></a>29. Class 与 Style 如何动态绑定？</h3><p>答：<br>Class<br>1、对象方法 v-bind:class=”{‘orange’: isRipe, ‘green’: isNotRipe}”<br>2、数组方法 v-bind:class=”[class1, class2]”<<br>3、行内 v-bind:style=”{color: color, fontSize: fontSize+’px’}”<br>Stlye<br>1、对象方法 <v-bind:style=”{ color: activecolor, fontsize: fontsize + ‘px’ }”<br>2、数组方法 v-bind:style=”[styleColor,styleSize]”</v-bind:style=”{></p><h3 id="30-说说Vue中的事件修饰符。"><a href="#30-说说Vue中的事件修饰符。" class="headerlink" title="30. 说说Vue中的事件修饰符。"></a>30. 说说Vue中的事件修饰符。</h3><p>答：<br>.native:绑定一个原生的click事件<br>.prevent: 提交时间不再重载页面<br>.stop:阻止单击事件冒泡<br>.self:当事件发生在该元素本身而不是子元素的时候触发<br>.capture:事件侦听，事件发生的时候会调用<br>组合键 click.ctrl.exact 只有ctrl被按下的时候才触发</p></div></body></html>]]></content>
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h3 id="1-active-class-是哪个组件的属性？嵌套路由怎么定义？"><a href="#1-active-class-是哪个组件的属性？嵌套路由怎么定义？" class="headerlink" title="1. active-class 是哪个组件的属性？嵌套路由怎么定义？"></a>1. active-class 是哪个组件的属性？嵌套路由怎么定义？</h3><p>答：vue-router 模块的 router-link 组件。</p><h3 id="2-怎么定义-vue-router-的动态路由？怎么获取传过来的动态参数？"><a href="#2-怎么定义-vue-router-的动态路由？怎么获取传过来的动态参数？" class="headerlink" title="2. 怎么定义 vue-router 的动态路由？怎么获取传过来的动态参数？"></a>2. 怎么定义 vue-router 的动态路由？怎么获取传过来的动态参数？</h3><p>答：在路由的 path 属性上加上 【/:id】。获取：$route.params.id。</p><h3 id="3-vue-router-有哪几种导航钩子？"><a href="#3-vue-router-有哪几种导航钩子？" class="headerlink" title="3. vue-router 有哪几种导航钩子？"></a>3. vue-router 有哪几种导航钩子？</h3><p>答：<br>（1）全局导航钩子：<code>beforeEach()、afterEach()</code><br>（2）路由独享组件：<code>beforeEnter()</code><br>（3）组件内的钩子：<code>beforeRouteEnter()、beforeRouteUpdate()、beforeRouteLeave()</code></p><h3 id="4-scss-是什么？使用步骤是？有那几大特性？"><a href="#4-scss-是什么？使用步骤是？有那几大特性？" class="headerlink" title="4. scss 是什么？使用步骤是？有那几大特性？"></a>4. scss 是什么？使用步骤是？有那几大特性？</h3><p>答:<br>（1）预处理 css，把 css 当成函数编写，定义变量，嵌套<br>（2）npm 下三个 loader （sass-loader、css-loader、node-sass）;<br>在 build 文件夹下 webpack.base.conf.js 文件，在module 中添加规则 { test: /.sass变量名称=值）；</p><h3 id="5-mint-ui是什么？怎么使用？至少说出三个组件的使用方法？"><a href="#5-mint-ui是什么？怎么使用？至少说出三个组件的使用方法？" class="headerlink" title="5. mint-ui是什么？怎么使用？至少说出三个组件的使用方法？"></a>5. mint-ui是什么？怎么使用？至少说出三个组件的使用方法？</h3><p>答：<br>（1）基于 vue 的前端组件库。npm 安装，然后 import 样式和js，Vue.use(mintUI)全局引入。<br>（2）在单个组件内部引入：import { Toast } from ‘mint-ui’<br>（3）组件1：Toast(‘登录成功’)；<br>组件2：mint-header<br>组件3：mint-swiper</p><h3 id="6-v-model-是什么？怎么使用？vue中标签怎么绑定事件？"><a href="#6-v-model-是什么？怎么使用？vue中标签怎么绑定事件？" class="headerlink" title="6. v-model 是什么？怎么使用？vue中标签怎么绑定事件？"></a>6. v-model 是什么？怎么使用？vue中标签怎么绑定事件？</h3><p>答：是可以实现双向数据绑定的指令（v-class、v-for 、v-if、v-show、v-on）</p><div @click="someFunc"><h3 id="7-axios-是什么？怎么使用？描述使用它实现登录功能的流程？"><a href="#7-axios-是什么？怎么使用？描述使用它实现登录功能的流程？" class="headerlink" title="7. axios 是什么？怎么使用？描述使用它实现登录功能的流程？"></a>7. axios 是什么？怎么使用？描述使用它实现登录功能的流程？</h3><p>答：<br>（1）axios 是请求后台资源的模块<br>（2）npm install axios -S，然后 <code>axios.get(‘/user’, {params: {ID: 123465}},then(res=> {}).catch(err=> {}))</code></p><h3 id="8-axios-tp5-进阶中，调用-axios-post-‘api-user’-是进行什么操作？axios-put-‘api-user-8’-呢？"><a href="#8-axios-tp5-进阶中，调用-axios-post-‘api-user’-是进行什么操作？axios-put-‘api-user-8’-呢？" class="headerlink" title="8. axios + tp5 进阶中，调用 axios.post(‘api/user’)是进行什么操作？axios.put(‘api/user/8’)呢？"></a>8. axios + tp5 进阶中，调用 axios.post(‘api/user’)是进行什么操作？axios.put(‘api/user/8’)呢？</h3><p>答：跨域，添加用户操作，更新操作</p><h3 id="9-谈谈对vue-组件化的理解。"><a href="#9-谈谈对vue-组件化的理解。" class="headerlink" title="9. 谈谈对vue 组件化的理解。"></a>9. 谈谈对vue 组件化的理解。</h3><p>答：组件的基本构成分别为：样式结构，行为逻辑，数据。web 中的组件其实就是页面的一部分，每个组件都会提供一些对外的接口，允许使用者使用和设置参数属性，可以将不同功能的组件结合在一起，快速的构建一个符合需求的引用</p><h3 id="10-谈谈对Vue-路由的理解。"><a href="#10-谈谈对Vue-路由的理解。" class="headerlink" title="10. 谈谈对Vue 路由的理解。"></a>10. 谈谈对Vue 路由的理解。</h3><p>答：首先Vue的单页面应用是基于路由和组件的，路由用于设定访问的路径，并将路径和组件映射起来。传统的页面应用，是通过超链接来实现页面的切换和跳转。在vue-router 中是路径之间的切换，也就是组件的切换。</p><h3 id="11-谈谈你对-Vue-钩子函数的理解"><a href="#11-谈谈你对-Vue-钩子函数的理解" class="headerlink" title="11. 谈谈你对 Vue 钩子函数的理解"></a>11. 谈谈你对 Vue 钩子函数的理解</h3><p>答：vue-router 的导航钩子主要用于拦截导航，让他完成跳转或取消。</p><h3 id="12-如何让-css-只在当前页面起作用"><a href="#12-如何让-css-只在当前页面起作用" class="headerlink" title="12. 如何让 css 只在当前页面起作用"></a>12. 如何让 css 只在当前页面起作用</h3><p>答：<code>scoped</code></p><h3 id="13-created-和-mounted-的区别"><a href="#13-created-和-mounted-的区别" class="headerlink" title="13. created 和 mounted 的区别"></a>13. created 和 mounted 的区别</h3><p>答：created 是实例创建完成之后的钩子函数，el属性不可见；<br>el 已创建，同时 DOM 已生成。</p><h3 id="14-created-和-mounted-分别什么时候用？"><a href="#14-created-和-mounted-分别什么时候用？" class="headerlink" title="14. created 和 mounted 分别什么时候用？"></a>14. created 和 mounted 分别什么时候用？</h3><p>答：只有 ajax 数据请求时，使用 created ；如果有依赖DOM的情况，就放在 mounted中</p><h3 id="15-vue-和-angular-分别采用什么技术实现双向数据绑定？"><a href="#15-vue-和-angular-分别采用什么技术实现双向数据绑定？" class="headerlink" title="15. vue 和 angular 分别采用什么技术实现双向数据绑定？"></a>15. vue 和 angular 分别采用什么技术实现双向数据绑定？</h3><p>答：Angular 采用”脏值检测“的方式，数据发生变更后，对于所有的数据和视图的绑定关系击行一次检测，识别是否有数据发生变化，有变化进行处理，可能进一步引发其他数据变化，所以这个过程可能会重复几次，一直到没有数据发生变化后，将变更的数据发送到视图，更新页面展示。如果是手动对 ViewModel 的数据进行变更，为确保变更同步到试图，需要手动触发一次“脏值检测”。<br>VueJS 则使用 ES5 提供的 <code>Object.defineProperty</code> 方法，监控对数据的操作，从而可以自动触发数据同步。并且是在不同的数据上触发同步，可以精确的将变更发送给绑定的视图，而不是对所有数据都进行一次检测。</p><h3 id="16-描述下-vue-从初始化页面–修改数据–刷新页面-UI-的过程？"><a href="#16-描述下-vue-从初始化页面–修改数据–刷新页面-UI-的过程？" class="headerlink" title="16. 描述下 vue 从初始化页面–修改数据–刷新页面 UI 的过程？"></a>16. 描述下 vue 从初始化页面–修改数据–刷新页面 UI 的过程？</h3><p>答： 当 Vue 进入初始化阶段时，一方面 Vue 会遍历 data 中的属性，并用 Object.defineProperty 将它转化成 getter/setter 的形式，实现数据劫持(暂不谈 Vue3.0 的 Proxy)；另一方面，Vue 的指令编译器 Compiler 对元素节点的各个指令进行解析，初始化视图，并订阅 Watcher 来更新试图，此时 Watcher 会将自己添加到消息订阅器 Dep 中，此时初始化完毕。<br>当数据发生变化时，触发 Observer 中 setter 方法，立即调用 Dep.notify(),Dep 这个数组开始遍历所有的订阅者，并调用其 update 方法，Vue 内部再通过 diff 算法，patch 相应的更新完成对订阅者视图的改变。</p><h3 id="17-Vue中watch、methods-和-计算属性的区别是什么？"><a href="#17-Vue中watch、methods-和-计算属性的区别是什么？" class="headerlink" title="17. Vue中watch、methods 和 计算属性的区别是什么？"></a>17. Vue中watch、methods 和 计算属性的区别是什么？</h3><p>答：watch 为了监听某个响应数据的变化。计算属性是自动监听依赖值的变化，从而动态返回内容，主要目的是简化模板内的复杂运算。所以区别来源于用法，只是需要动态值，那就用计算属性；需要知道值的改变后执行业务逻辑，才用 watch。<br>methods是一个方法，它可以接受参数，而computed 不能，computed 是可以缓存的，methods 不会。computed 可以依赖其他 computed，甚至是其他组件的 data。  </p><h3 id="18-vue中怎么重置data"><a href="#18-vue中怎么重置data" class="headerlink" title="18. vue中怎么重置data"></a>18. vue中怎么重置data</h3><p>答：使用Object.assign()，vm.$data可以获取当前状态下的data，vm.$options.data可以获取到组件初始化状态下的data。<code>Object.assign(this.$data, this.$options.data())</code></p><h3 id="19-Vue组件中写-name-选项有什么作用？"><a href="#19-Vue组件中写-name-选项有什么作用？" class="headerlink" title="19. Vue组件中写 name 选项有什么作用？"></a>19. Vue组件中写 name 选项有什么作用？</h3><p>答：<br>项目使用 keep-alive 时，可搭配组件 name 进行缓存过滤<br>DOM 做递归组件时需要调用自身 name<br>vue-devtools 调试工具里显示的组见名称是由vue中组件name决定的</p><h3 id="20-Vuex有哪几种属性"><a href="#20-Vuex有哪几种属性" class="headerlink" title="20. Vuex有哪几种属性"></a>20. Vuex有哪几种属性</h3><p>答：有五种，分别是 <code>State</code>、<code>Getter</code>、<code>Mutation</code>、<code>Action</code>、<code>Module</code></p><h3 id="21-vue-的优点是什么？"><a href="#21-vue-的优点是什么？" class="headerlink" title="21. vue 的优点是什么？"></a>21. vue 的优点是什么？</h3><p>答：低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的”View”上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。<br>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 view 重用这段视图逻辑。<br>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用 Expression Blend 可以很容易设计界面并生成 xml 代码。<br>可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。</p><h3 id="22-说出至少-4-种-vue-当中的指令和它的用法"><a href="#22-说出至少-4-种-vue-当中的指令和它的用法" class="headerlink" title="22. 说出至少 4 种 vue 当中的指令和它的用法"></a>22. 说出至少 4 种 vue 当中的指令和它的用法</h3><p>答：v-if(判断是否隐藏)、v-for(把数据遍历出来)、v-bind(绑定属性)、v-model(实现双向绑定)</p><h3 id="23-vuex-的-store-特性是什么"><a href="#23-vuex-的-store-特性是什么" class="headerlink" title="23. vuex 的 store 特性是什么"></a>23. vuex 的 store 特性是什么</h3><p>答：vuex 就是一个仓库，仓库里放了很多对象。其中 state 就是数据源存放地，对应于一般 vue 对象里面的 datastate 里面存放的数据是响应式的，vue 组件从 store 读取数据，若是 store 中的数据发生改变，依赖这相数据的组件也会发生更新它通过 mapState 把全局的 state 和 getters 映射到当前组件的 computed 计算属性</p><h3 id="24-vuex-的-getter-特性是什么"><a href="#24-vuex-的-getter-特性是什么" class="headerlink" title="24. vuex 的 getter 特性是什么"></a>24. vuex 的 getter 特性是什么</h3><p>答：getter 可以对 state 进行计算操作，它就是 store 的计算属性虽然在组件内也可以做计算属性，但是 getters 可以在多给件之间复用如果一个状态只在一个组件内使用，是可以不用 getters</p><h3 id="25-vuex-的-mutation-特性是什么"><a href="#25-vuex-的-mutation-特性是什么" class="headerlink" title="25. vuex 的 mutation 特性是什么"></a>25. vuex 的 mutation 特性是什么</h3><p>答：action 类似于 muation, 不同在于：action 提交的是 mutation,而不是直接变更状态action 可以包含任意异步操作<br>vue 中 ajax 请求代码应该写在组件的 methods 中还是 vuex 的 action 中<br>如果请求来的数据不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入 vuex 的 state 里如果被其他地方复用，请将请求放入 action 里，方便复用，并包装成 promise 返回  </p><h3 id="26-Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团"><a href="#26-Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团" class="headerlink" title="26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团"></a>26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团</h3><p>答：Vuex 中修改 state 的唯一渠道就是执行 commit(‘xx’, payload) 方法，其底层通过执行 this._withCommit(fn) 设置_committing 标志变量为 true，然后才能修改 state，修改完毕还需要还原_committing 变量。外部修改虽然能够直接修改 state，但是并没有修改_committing 标志位，所以只要 watch 一下 state，state change 时判断是否_committing 值为 true，即可判断修改的合法性。</p><h3 id="27-不用-vuex-会带来什么问题"><a href="#27-不用-vuex-会带来什么问题" class="headerlink" title="27. 不用 vuex 会带来什么问题"></a>27. 不用 vuex 会带来什么问题</h3><p>答：可维护性会下降，你要修改数据，你得维护 3 个地方<br>可读性下降，因为一个组件里的数据，你根本就看不出来是从哪里来的<br>增加耦合，大量的上传派发，会让耦合性大大的增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背</p><h3 id="28-1、v-show-与-v-if-区别"><a href="#28-1、v-show-与-v-if-区别" class="headerlink" title="28. 1、v-show 与 v-if 区别"></a>28. 1、v-show 与 v-if 区别</h3><p>答：<br>1、<code>v-show</code>是css切换，<code>v-if</code>是完整的销毁和重新创建。<br>2、使用 频繁切换时用v-show，运行时较少改变时用v-if<br>3、<code>v-if=‘false’</code> v-if是条件渲染，当false的时候不会渲染</p><h3 id="29-Class-与-Style-如何动态绑定？"><a href="#29-Class-与-Style-如何动态绑定？" class="headerlink" title="29. Class 与 Style 如何动态绑定？"></a>29. Class 与 Style 如何动态绑定？</h3><p>答：<br>Class<br>1、对象方法 <code>v-bind:class="{'orange': isRipe, 'green': isNotRipe}"</code></p><pre><code>data: {  isRipe: true,  isNotRipe: false}</code></pre><p>2、数组方法 <code>v-bind:class="[isActive ? activeClass : '', errorClass]"</code></p><pre><code>data: {    activeClass: 'active',    errorClass: 'text-danger'}</code></pre><p>3、行内 <code>v-bind:style="{color: color, fontSize: fontSize+'px'}"</code></p><p>Stlye  </p><p>1、对象方法 <code>v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"</code></p><pre><code>data: {  activeColor: 'red',  fontSize: 30}</code></pre><p>2、数组方法 <code>v-bind:style="[styleColor,styleSize]"</code></p><pre><code>data: {  styleColor: {     color: 'red'   },  styleSize:{     fontSize:'23px'  }}</code></pre><h3 id="30-说说Vue中的事件修饰符。"><a href="#30-说说Vue中的事件修饰符。" class="headerlink" title="30. 说说Vue中的事件修饰符。"></a>30. 说说Vue中的事件修饰符。</h3><p>答：<br><code>.native</code>:绑定一个原生的click事件<br><code>.prevent</code>: 提交事件不再重载页面<br><code>.stop</code>:阻止单击事件冒泡<br><code>.self</code>:当事件发生在该元素本身而不是子元素的时候触发<br><code>.capture</code>:事件侦听，事件发生的时候会调用<br>组合键 <code>click.ctrl.exact</code> 只有ctrl被按下的时候才触发  </p></div></body></html>]]></content>
       
       
       <categories>
