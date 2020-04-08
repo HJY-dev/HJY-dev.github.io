@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>Docker安装mysql详细步骤</title>
+      <title>Docker安装Mysql详细步骤</title>
       <link href="/2020/04/08/Docker%E5%AE%89%E8%A3%85mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/"/>
       <url>/2020/04/08/Docker%E5%AE%89%E8%A3%85mysql%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/</url>
       
-        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Docker安装Mysql详细步骤"><a href="#Docker安装Mysql详细步骤" class="headerlink" title="Docker安装Mysql详细步骤"></a>Docker安装Mysql详细步骤</h2></body></html>]]></content>
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Docker安装Mysql详细步骤"><a href="#Docker安装Mysql详细步骤" class="headerlink" title="Docker安装Mysql详细步骤"></a>Docker安装Mysql详细步骤</h2><h3 id="一、安装Docker环境"><a href="#一、安装Docker环境" class="headerlink" title="一、安装Docker环境"></a>一、安装Docker环境</h3><p><a href="https://docs.docker.com/engine/install/centos/" target="_blank" rel="noopener">Install Docker Engine on CentOS</a></p><p>安装Docker环境看官网文档吧，在此不做赘述。</p><h3 id="二、安装Mysql"><a href="#二、安装Mysql" class="headerlink" title="二、安装Mysql"></a>二、安装Mysql</h3><p><a href="https://hub.docker.com/_/mysql" target="_blank" rel="noopener">DockerHub mysql</a></p><h3 id="三、连接Mysql"><a href="#三、连接Mysql" class="headerlink" title="三、连接Mysql"></a>三、连接Mysql</h3><h4 id="1、使用Network方式连接Mysql"><a href="#1、使用Network方式连接Mysql" class="headerlink" title="1、使用Network方式连接Mysql"></a>1、使用Network方式连接Mysql</h4><h4 id="2、使用-Link方式连接Mysql"><a href="#2、使用-Link方式连接Mysql" class="headerlink" title="2、使用 Link方式连接Mysql"></a>2、使用 Link方式连接Mysql</h4></body></html>]]></content>
       
       
       <categories>
@@ -19,6 +19,8 @@
       
       
         <tags>
+            
+            <tag> Linux </tag>
             
             <tag> Mysql </tag>
             
@@ -44,6 +46,8 @@
       
       
         <tags>
+            
+            <tag> Linux </tag>
             
             <tag> Mysql </tag>
             
