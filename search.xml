@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title>Mysql-MyCat读写分离配置</title>
+      <link href="/2020/04/09/Mysql-MyCat%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%85%8D%E7%BD%AE/"/>
+      <url>/2020/04/09/Mysql-MyCat%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Mysql-MyCat读写分离配置"><a href="#Mysql-MyCat读写分离配置" class="headerlink" title="Mysql-MyCat读写分离配置"></a>Mysql-MyCat读写分离配置</h2></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MyCat安装与启动</title>
+      <link href="/2020/04/09/MyCat%E5%AE%89%E8%A3%85%E4%B8%8E%E5%90%AF%E5%8A%A8/"/>
+      <url>/2020/04/09/MyCat%E5%AE%89%E8%A3%85%E4%B8%8E%E5%90%AF%E5%8A%A8/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="MyCat安装与启动"><a href="#MyCat安装与启动" class="headerlink" title="MyCat安装与启动"></a>MyCat安装与启动</h2></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql主从复制原理</title>
+      <link href="/2020/04/09/Mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8E%9F%E7%90%86/"/>
+      <url>/2020/04/09/Mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Mysql主从复制原理"><a href="#Mysql主从复制原理" class="headerlink" title="Mysql主从复制原理"></a>Mysql主从复制原理</h2></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql备份恢复实战</title>
+      <link href="/2020/04/09/Mysql%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/"/>
+      <url>/2020/04/09/Mysql%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%AE%9E%E6%88%98/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Mysql备份恢复实战"><a href="#Mysql备份恢复实战" class="headerlink" title="Mysql备份恢复实战"></a>Mysql备份恢复实战</h2></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql备份恢复介绍</title>
+      <link href="/2020/04/09/Mysql%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2020/04/09/Mysql%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Mysql备份恢复介绍"><a href="#Mysql备份恢复介绍" class="headerlink" title="Mysql备份恢复介绍"></a>Mysql备份恢复介绍</h2><h3 id="一、Mysql备份的分类"><a href="#一、Mysql备份的分类" class="headerlink" title="一、Mysql备份的分类"></a>一、Mysql备份的分类</h3><h4 id="按照备份后产生的副本文件是否可以编辑，可分为逻辑备份、物理备份。"><a href="#按照备份后产生的副本文件是否可以编辑，可分为逻辑备份、物理备份。" class="headerlink" title="按照备份后产生的副本文件是否可以编辑，可分为逻辑备份、物理备份。"></a>按照备份后产生的副本文件是否可以编辑，可分为逻辑备份、物理备份。</h4><h4 id="1-物理备份："><a href="#1-物理备份：" class="headerlink" title="1.物理备份："></a>1.物理备份：</h4><blockquote><p>物理备份产生的数据副本都是二进制文件，常常不可编辑，例如数据库的二进制日志。</p></blockquote><blockquote><p>适用：<br>物理备份使用于大数据量的备份，比如你有百G级、TB级的数据，那你就适合使用物理备份。 </p></blockquote><blockquote><p>备份方法：  </p><ol><li>文件系统命令：cp,scp,tar,rsync;  </li><li>Mysql相关备份软件；系统快照snapshot;  </li></ol></blockquote><h4 id="2-逻辑备份（将数据导出至文本文件中）："><a href="#2-逻辑备份（将数据导出至文本文件中）：" class="headerlink" title="2.逻辑备份（将数据导出至文本文件中）："></a>2.逻辑备份（将数据导出至文本文件中）：</h4><blockquote><p>逻辑备份就是把数据库的结构定义语句，数据内容的插入语句，全部存储下来。然后恢复的时候，在另一个mysql服务器执行这些语句，就可以创建另一个与之前一样的数据库了。备份后，数据库管理员通常可以直接查看和编辑副本文件中的内容。</p></blockquote><blockquote><p>适用：<br>这种比较适合数据量少的数据库。  </p></blockquote><blockquote><p>备份方法：  </p><ol><li>如，使用mysqldump等程序可以把对远程/本地数据库进行逻辑备份。  </li><li>select … into outfile 可以把数据进行逻辑备份，但备份文件只  能存储在mysql-server的机器上；  </li></ol></blockquote><h3 id="二、Mysql一般备份以下几个部分："><a href="#二、Mysql一般备份以下几个部分：" class="headerlink" title="二、Mysql一般备份以下几个部分："></a>二、Mysql一般备份以下几个部分：</h3><ol><li>数据文件  </li><li>日志文件（比如事务日志，二进制日志）  </li><li>存储过程，存储函数，触发器  </li><li>配置文件（十分重要，各个配置文件都要备份）  </li><li>用于实现数据库备份的脚本  </li></ol><h3 id="三、Mysql备份工具简介"><a href="#三、Mysql备份工具简介" class="headerlink" title="三、Mysql备份工具简介"></a>三、Mysql备份工具简介</h3><ol><li><p>mysqldump (单线程) / mysqlpump (多线程)<br>mysql服务自带的备份工具，是一种逻辑备份工具，它支持以下方式备份：<br>完全、部分备份；<br>InnoDB：热备；<br>MyISAM：温备；</p></li><li><p>mydumper 开源，是mysqldump 的一个衍生，速度在俩者之间。</p></li><li><p>cp / tar 物理拷贝</p></li><li><p>innobackup[收费] / xtrabackup[免费]</p></li><li><p>官方mysql enterprise backup 备份软件，收费。</p></li></ol><h3 id="四、Mysql备份方案的选型"><a href="#四、Mysql备份方案的选型" class="headerlink" title="四、Mysql备份方案的选型"></a>四、Mysql备份方案的选型</h3><ol><li><p>直接拷贝数据库文件（文件系统备份工具cp）（适合小型数据库，是最可靠的）</p></li><li><p>mysqldump 备份数据库（完全备份+增量备份，速度比较慢，适合中小型数据库）</p></li><li><p>Xtrabackup&&lvm 快照从物理角度实现几乎热备的完全备份，配合二进制日志备份实现增量备份，速度快适合大型数据库。</p></li></ol></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> Mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Butterfly使用Leancloud评论系统</title>
       <link href="/2020/04/09/Butterfly%E4%BD%BF%E7%94%A8Leancloud%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
       <url>/2020/04/09/Butterfly%E4%BD%BF%E7%94%A8Leancloud%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
@@ -1429,7 +1554,7 @@
       <link href="/2020/02/23/Docker-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
       <url>/2020/02/23/Docker-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
       
-        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Docker-常用操作"><a href="#Docker-常用操作" class="headerlink" title="Docker 常用操作"></a>Docker 常用操作</h2><h3 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h3><ol><li>查询镜像：<code>docker search <imagename></imagename></code></li><li>获取镜像：<code>docker pull <imagename></imagename></code></li><li>获取镜像的具体信息：<code>docker inspect <imageid></imageid></code></li><li>删除容器： <code>docker rm <containerid></containerid></code></li><li>删除镜像： <code>docker rmi <imageid></imageid></code></li><li>查看镜像的层：<code>docker history  <imageid></imageid></code></li><li>删除所有未打 dangling 标签的镜像：<code>docker rmi $(docker images -q -f dangling=true)</code></li><li>强制删除镜像名称中包含“doss-api”的镜像：<code>docker rmi --force $(docker images | grep doss-api | awk '{print $3}')</code></li></ol><h3 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h3><ol><li>创建容器：<code>docker create -it <imagename></imagename></code></li><li>启动容器：<code>docker start <containerid></containerid></code></li><li>创建并启动容器：<code>docker run ImageName></code></li><li>删除容器：<code>docker rm <containerid></containerid></code></li><li>停止容器：<code>docker stop <containerid></containerid></code></li><li>重启容器：<code>docker restart <containerid></containerid></code></li><li>进入容器：<code>docker exec -it CONTAINER ID bash 或 /bin/bash</code></li><li>获取退出运行的容器：<code>docker container ls -aq</code></li><li>删除退出运行的所有容器：<code>docker rm $(docker container ls -aq)</code></li></ol><h3 id="简写操作"><a href="#简写操作" class="headerlink" title="简写操作"></a>简写操作</h3><ol><li>docker image ls 简写–> docker images</li><li>docker container ls -a 简写–> docker ps -a</li><li>docker container commit 简写 docker commit</li><li>docker container build  简写 docker build</li></ol><hr><h2 id="Docker-概念"><a href="#Docker-概念" class="headerlink" title="Docker 概念"></a>Docker 概念</h2><h3 id="1-container-跟-image-的关系"><a href="#1-container-跟-image-的关系" class="headerlink" title="1. container 跟 image 的关系"></a>1. container 跟 image 的关系</h3><blockquote><h4 id="类实例跟类的关系；"><a href="#类实例跟类的关系；" class="headerlink" title="类实例跟类的关系；"></a>类实例跟类的关系；</h4></blockquote><h4 id="在image-layer之上建立一个container-layer（可读写）；"><a href="#在image-layer之上建立一个container-layer（可读写）；" class="headerlink" title="在image layer之上建立一个container layer（可读写）；"></a>在image layer之上建立一个container layer（可读写）；</h4><blockquote><h4 id="container是在image的基础上产生的，通过image创建（copy）；"><a href="#container是在image的基础上产生的，通过image创建（copy）；" class="headerlink" title="container是在image的基础上产生的，通过image创建（copy）；"></a>container是在image的基础上产生的，通过image创建（copy）；</h4><h4 id="image负责app的存储和分发，container负责运行app；"><a href="#image负责app的存储和分发，container负责运行app；" class="headerlink" title="image负责app的存储和分发，container负责运行app；"></a>image负责app的存储和分发，container负责运行app；</h4></blockquote></body></html>]]></content>
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Docker-常用操作"><a href="#Docker-常用操作" class="headerlink" title="Docker 常用操作"></a>Docker 常用操作</h2><h3 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h3><ol><li>查询镜像：<code>docker search <imagename></imagename></code></li><li>获取镜像：<code>docker pull <imagename></imagename></code></li><li>获取镜像的具体信息：<code>docker inspect <imageid></imageid></code></li><li>删除容器： <code>docker rm <containerid></containerid></code></li><li>删除镜像： <code>docker rmi <imageid></imageid></code></li><li>查看镜像的层：<code>docker history  <imageid></imageid></code></li><li>删除所有未打 dangling 标签的镜像：<code>docker rmi $(docker images -q -f dangling=true)</code></li><li>强制删除镜像名称中包含“doss-api”的镜像：<code>docker rmi --force $(docker images | grep doss-api | awk '{print $3}')</code></li></ol><h3 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h3><ol><li>创建容器：<code>docker create -it <imagename></imagename></code></li><li>启动容器：<code>docker start <containerid></containerid></code></li><li>创建并启动容器：<code>docker run ImageName></code></li><li>删除容器：<code>docker rm <containerid></containerid></code></li><li>停止容器：<code>docker stop <containerid></containerid></code></li><li>重启容器：<code>docker restart <containerid></containerid></code></li><li>进入容器：<code>docker exec -it CONTAINER ID bash 或 /bin/bash</code></li><li>获取退出运行的容器：<code>docker container ls -aq</code></li><li>删除退出运行的所有容器：<code>docker rm $(docker container ls -aq)</code></li><li>查看所有容器的cpu、内存、网络、io情况：<code>docker stats -a</code></li><li>查看单个容器的资源占用情况：<code>docker stats [OPTIONS] [CONTAINER...]</code></li><li>只返回当前的状态：<code>docker stats --no-stream</code></li></ol><h3 id="简写操作"><a href="#简写操作" class="headerlink" title="简写操作"></a>简写操作</h3><ol><li>docker image ls 简写–> docker images</li><li>docker container ls -a 简写–> docker ps -a</li><li>docker container commit 简写 docker commit</li><li>docker container build  简写 docker build</li></ol><hr><h2 id="Docker-概念"><a href="#Docker-概念" class="headerlink" title="Docker 概念"></a>Docker 概念</h2><h3 id="1-container-跟-image-的关系"><a href="#1-container-跟-image-的关系" class="headerlink" title="1. container 跟 image 的关系"></a>1. container 跟 image 的关系</h3><blockquote><h4 id="类实例跟类的关系；"><a href="#类实例跟类的关系；" class="headerlink" title="类实例跟类的关系；"></a>类实例跟类的关系；</h4></blockquote><h4 id="在image-layer之上建立一个container-layer（可读写）；"><a href="#在image-layer之上建立一个container-layer（可读写）；" class="headerlink" title="在image layer之上建立一个container layer（可读写）；"></a>在image layer之上建立一个container layer（可读写）；</h4><blockquote><h4 id="container是在image的基础上产生的，通过image创建（copy）；"><a href="#container是在image的基础上产生的，通过image创建（copy）；" class="headerlink" title="container是在image的基础上产生的，通过image创建（copy）；"></a>container是在image的基础上产生的，通过image创建（copy）；</h4><h4 id="image负责app的存储和分发，container负责运行app；"><a href="#image负责app的存储和分发，container负责运行app；" class="headerlink" title="image负责app的存储和分发，container负责运行app；"></a>image负责app的存储和分发，container负责运行app；</h4></blockquote></body></html>]]></content>
       
       
       <categories>
