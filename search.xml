@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>asp.net core3.1 webapi post请求返回http 400</title>
+      <link href="/2020/05/17/asp-net-core3-1-webapi-post%E8%AF%B7%E6%B1%82%E8%BF%94%E5%9B%9Ehttp-400/"/>
+      <url>/2020/05/17/asp-net-core3-1-webapi-post%E8%AF%B7%E6%B1%82%E8%BF%94%E5%9B%9Ehttp-400/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h3 id="在Asp-net-core-3-0的webapi项目中，发送json格式的post请求后，返回的header中error提示The-JSON-value-could-not-be-converted-to"><a href="#在Asp-net-core-3-0的webapi项目中，发送json格式的post请求后，返回的header中error提示The-JSON-value-could-not-be-converted-to" class="headerlink" title="在Asp.net core 3.0的webapi项目中，发送json格式的post请求后，返回的header中error提示The JSON value could not be converted to"></a>在Asp.net core 3.0的webapi项目中，发送json格式的post请求后，返回的header中error提示The JSON value could not be converted to</h3><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="安装Microsoft-AspNetCore-Mvc-NewtonsoftJson-包"><a href="#安装Microsoft-AspNetCore-Mvc-NewtonsoftJson-包" class="headerlink" title="安装Microsoft.AspNetCore.Mvc.NewtonsoftJson 包"></a>安装Microsoft.AspNetCore.Mvc.NewtonsoftJson 包</h4><h4 id="在ConfigureServices中添加services-AddNewtonsoftJson"><a href="#在ConfigureServices中添加services-AddNewtonsoftJson" class="headerlink" title="在ConfigureServices中添加services.AddNewtonsoftJson();"></a>在ConfigureServices中添加services.AddNewtonsoftJson();</h4><blockquote><p>其他文章参考：<br><a href="https://www.cnblogs.com/dudu/p/11562019.html" target="_blank" rel="noopener">《.NET Core 内置的 System.Text.Json 使用注意》</a></p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> NetCore </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NetCore </tag>
+            
+            <tag> WebApi </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker启动ELK详细配置</title>
+      <link href="/2020/04/14/Docker%E5%90%AF%E5%8A%A8ELK%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE/"/>
+      <url>/2020/04/14/Docker%E5%90%AF%E5%8A%A8ELK%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="Docker启动ELK详细配置"><a href="#Docker启动ELK详细配置" class="headerlink" title="Docker启动ELK详细配置"></a>Docker启动ELK详细配置</h2><blockquote><p>参考：<br><a href="https://www.docker.elastic.co/" target="_blank" rel="noopener">《Docker @ Elastic》</a><br><a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html" target="_blank" rel="noopener">《Elasticsearch: 权威指南》</a></p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> ELK </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> NetCore </tag>
+            
+            <tag> Elasticsearch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker安装Jenkins实现CICD</title>
       <link href="/2020/04/11/Docker%E5%AE%89%E8%A3%85Jenkins%E5%AE%9E%E7%8E%B0CICD/"/>
       <url>/2020/04/11/Docker%E5%AE%89%E8%A3%85Jenkins%E5%AE%9E%E7%8E%B0CICD/</url>
@@ -399,7 +455,7 @@
       <link href="/2020/04/06/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
       <url>/2020/04/06/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</url>
       
-        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="微软资源"><a href="#微软资源" class="headerlink" title="微软资源"></a>微软资源</h2><h3 id="微软学习路径"><a href="#微软学习路径" class="headerlink" title="微软学习路径"></a><a href="https://docs.microsoft.com/zh-cn/learn/" target="_blank" rel="noopener">微软学习路径</a></h3><h3 id="NetCore指南"><a href="#NetCore指南" class="headerlink" title=".NetCore指南"></a><a href="https://docs.microsoft.com/zh-cn/dotnet/core/" target="_blank" rel="noopener">.NetCore指南</a></h3><h3 id="Azure-DevOps"><a href="#Azure-DevOps" class="headerlink" title="Azure DevOps"></a><a href="https://app.vsaex.visualstudio.com/" target="_blank" rel="noopener">Azure DevOps</a></h3><h3 id="Microsoft-Docs"><a href="#Microsoft-Docs" class="headerlink" title="Microsoft Docs"></a><a href="https://docs.microsoft.com/zh-cn/" target="_blank" rel="noopener">Microsoft Docs</a></h3><h2 id="ECMAScript-6"><a href="#ECMAScript-6" class="headerlink" title="ECMAScript 6"></a>ECMAScript 6</h2><h3 id="ECMAScript-6-入门"><a href="#ECMAScript-6-入门" class="headerlink" title="ECMAScript 6 入门"></a><a href="https://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6 入门</a></h3><h2 id="ABP"><a href="#ABP" class="headerlink" title="ABP"></a>ABP</h2><h3 id="ABP-FRAMEWORK"><a href="#ABP-FRAMEWORK" class="headerlink" title="ABP FRAMEWORK"></a><a href="https://docs.abp.io/zh-Hans/abp/latest" target="_blank" rel="noopener">ABP FRAMEWORK</a></h3><h2 id="前端UI"><a href="#前端UI" class="headerlink" title="前端UI"></a>前端UI</h2><h3 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a><a href="https://v4.bootcss.com/docs/getting-started/introduction/" target="_blank" rel="noopener">Bootstrap</a></h3><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="Docker-—-从入门到实践"><a href="#Docker-—-从入门到实践" class="headerlink" title="Docker — 从入门到实践"></a><a href="https://yeasy.gitbooks.io/docker_practice/content/" target="_blank" rel="noopener">Docker — 从入门到实践</a></h3><h3 id="katacoda"><a href="#katacoda" class="headerlink" title="katacoda"></a><a href="https://www.katacoda.com/" target="_blank" rel="noopener">katacoda</a></h3><h2 id="K8s"><a href="#K8s" class="headerlink" title="K8s"></a>K8s</h2><p>###</p><h2 id="压测"><a href="#压测" class="headerlink" title="压测"></a>压测</h2><h3 id="api接口压力测试"><a href="#api接口压力测试" class="headerlink" title="api接口压力测试"></a><a href="http://coolaf.com//tool/testing" target="_blank" rel="noopener">api接口压力测试</a></h3></body></html>]]></content>
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="微软资源"><a href="#微软资源" class="headerlink" title="微软资源"></a>微软资源</h2><h3 id="微软学习路径"><a href="#微软学习路径" class="headerlink" title="微软学习路径"></a><a href="https://docs.microsoft.com/zh-cn/learn/" target="_blank" rel="noopener">微软学习路径</a></h3><h3 id="NetCore指南"><a href="#NetCore指南" class="headerlink" title=".NetCore指南"></a><a href="https://docs.microsoft.com/zh-cn/dotnet/core/" target="_blank" rel="noopener">.NetCore指南</a></h3><h3 id="Azure-DevOps"><a href="#Azure-DevOps" class="headerlink" title="Azure DevOps"></a><a href="https://app.vsaex.visualstudio.com/" target="_blank" rel="noopener">Azure DevOps</a></h3><h3 id="Microsoft-Docs"><a href="#Microsoft-Docs" class="headerlink" title="Microsoft Docs"></a><a href="https://docs.microsoft.com/zh-cn/" target="_blank" rel="noopener">Microsoft Docs</a></h3><h2 id="ECMAScript-6"><a href="#ECMAScript-6" class="headerlink" title="ECMAScript 6"></a>ECMAScript 6</h2><h3 id="ECMAScript-6-入门"><a href="#ECMAScript-6-入门" class="headerlink" title="ECMAScript 6 入门"></a><a href="https://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6 入门</a></h3><h2 id="ABP"><a href="#ABP" class="headerlink" title="ABP"></a>ABP</h2><h3 id="ABP-FRAMEWORK"><a href="#ABP-FRAMEWORK" class="headerlink" title="ABP FRAMEWORK"></a><a href="https://docs.abp.io/zh-Hans/abp/latest" target="_blank" rel="noopener">ABP FRAMEWORK</a></h3><h2 id="前端UI"><a href="#前端UI" class="headerlink" title="前端UI"></a>前端UI</h2><h3 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a><a href="https://v4.bootcss.com/docs/getting-started/introduction/" target="_blank" rel="noopener">Bootstrap</a></h3><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="Docker-—-从入门到实践"><a href="#Docker-—-从入门到实践" class="headerlink" title="Docker — 从入门到实践"></a><a href="https://yeasy.gitbooks.io/docker_practice/content/" target="_blank" rel="noopener">Docker — 从入门到实践</a></h3><h3 id="katacoda"><a href="#katacoda" class="headerlink" title="katacoda"></a><a href="https://www.katacoda.com/" target="_blank" rel="noopener">katacoda</a></h3><h2 id="K8s"><a href="#K8s" class="headerlink" title="K8s"></a>K8s</h2><p>###</p><h2 id="压测"><a href="#压测" class="headerlink" title="压测"></a>压测</h2><h3 id="api接口压力测试"><a href="#api接口压力测试" class="headerlink" title="api接口压力测试"></a><a href="http://coolaf.com//tool/testing" target="_blank" rel="noopener">api接口压力测试</a></h3><h2 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h2><h3 id="api接口压力测试-1"><a href="#api接口压力测试-1" class="headerlink" title="api接口压力测试"></a><a href="https://www.teambition.com/" target="_blank" rel="noopener">api接口压力测试</a></h3><p>git clone速度太慢的解决办法<br><a href="https://www.jianshu.com/p/3f6477049ece" target="_blank" rel="noopener">https://www.jianshu.com/p/3f6477049ece</a></p><p>Git入门<br><a href="https://blog.csdn.net/Q1410136042/article/details/80481233" target="_blank" rel="noopener">https://blog.csdn.net/Q1410136042/article/details/80481233</a></p><p>asp.net core 程序入口详解及配置文件使用<br><a href="https://www.jianshu.com/p/01721c257b4e" target="_blank" rel="noopener">https://www.jianshu.com/p/01721c257b4e</a></p><p>去除.net core 发布的时候生成的多余语言文件夹cs,de…，多余的Microsoft.CodeAnalysis语言资源文件<br><a href="https://www.cnblogs.com/qinfeng888/p/12619772.html" target="_blank" rel="noopener">https://www.cnblogs.com/qinfeng888/p/12619772.html</a></p></body></html>]]></content>
       
       
       <categories>
