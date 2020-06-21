@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>FLUENT VALIDATION模型验证</title>
+      <link href="/2020/06/21/FLUENT-VALIDATION%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
+      <url>/2020/06/21/FLUENT-VALIDATION%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h2 id="NET-Core中的验证组件FluentValidation的实战分享"><a href="#NET-Core中的验证组件FluentValidation的实战分享" class="headerlink" title=".NET Core中的验证组件FluentValidation的实战分享"></a>.NET Core中的验证组件FluentValidation的实战分享</h2><blockquote><p>参考：<br><a href="https://fluentvalidation.net/" target="_blank" rel="noopener">官网地址</a><br><a href="https://www.cnblogs.com/yilezhu/p/10397393.html" target="_blank" rel="noopener">《.NET Core中的验证组件FluentValidation的实战分享》</a></p></blockquote></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> NetCore </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NetCore </tag>
+            
+            <tag> WebApi </tag>
+            
+            <tag> FLUENT VALIDATION </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sgen.exe未能运行</title>
+      <link href="/2020/06/21/sgen-exe%E6%9C%AA%E8%83%BD%E8%BF%90%E8%A1%8C/"/>
+      <url>/2020/06/21/sgen-exe%E6%9C%AA%E8%83%BD%E8%BF%90%E8%A1%8C/</url>
+      
+        <content type="html"><![CDATA[<html><head><link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script></head><body><h3 id="创建项目后无法编译运行，提示文件名称或者扩展名太长"><a href="#创建项目后无法编译运行，提示文件名称或者扩展名太长" class="headerlink" title="创建项目后无法编译运行，提示文件名称或者扩展名太长"></a>创建项目后无法编译运行，提示文件名称或者扩展名太长</h3><div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">严重性代码说明项目文件行禁止显示状态</span><br><span class="line">错误MSB6003指定的任务可执行文件“sgen.exe”未能运行。System.ComponentModel.Win32Exception (0x80004005): 文件名或扩展名太长。</span><br><span class="line">   在 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)</span><br><span class="line">   在 System.Diagnostics.Process.Start()</span><br><span class="line">   在 Microsoft.Build.Utilities.ToolTask.ExecuteTool(String pathToTool, String responseFileCommands, String commandLineCommands)</span><br><span class="line">   在 Microsoft.Build.Utilities.ToolTask.Execute()Common.ApiC:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets3544</span><br></pre></td></tr></tbody></table></figure></div><h3 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h3><p>解决方式， 项目属性->生成 把“开”设置成“自动”<br>解决方式， 项目属性->生成 把“On”设置成“Auto”</p></body></html>]]></content>
+      
+      
+      <categories>
+          
+          <category> NetCore </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NetCore </tag>
+            
+            <tag> WebApi </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>YApi可视化接口管理平台</title>
       <link href="/2020/06/20/YApi%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0/"/>
       <url>/2020/06/20/YApi%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8E%A5%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0/</url>
@@ -995,9 +1051,9 @@
             
             <tag> Linux </tag>
             
-            <tag> Kibana </tag>
-            
             <tag> ELK </tag>
+            
+            <tag> Kibana </tag>
             
         </tags>
       
